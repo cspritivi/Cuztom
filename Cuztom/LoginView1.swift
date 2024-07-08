@@ -8,24 +8,38 @@
 import SwiftUI
 
 struct LoginView1: View {
+    
+    @State private var path = NavigationPath()
+    
     var body: some View {
-        VStack {
-            Image("fullFormLogo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 500, height: 400)
+        
+        NavigationStack(path: $path) {
             
-            Button("Create A New Account") {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-            }
-            .padding(10)
-            .buttonStyle(.bordered)
-            
-            Button("Sign In With An Existing Account"){
+            VStack {
+                Image("fullFormLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 500, height: 400)
+                
+                Button("Create A New Account") {
+                    path.append("New Account")
+                }
+                .padding(10)
+                .buttonStyle(.bordered)
+                
+                Button("Sign In With An Existing Account"){
+                    path.append("Login")
+                }
+                .buttonStyle(.bordered)
                 
             }
-            .buttonStyle(.bordered)
-            
+        }
+        .navigationDestination(for: String.self) { dest in
+            switch dest {
+            case "New Account": CreateAccountView()
+            case "Login": SignInView()
+            default: CreateAccountView()
+            }
         }
     }
 }
