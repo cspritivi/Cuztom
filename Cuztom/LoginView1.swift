@@ -13,35 +13,69 @@ struct LoginView1: View {
     
     var body: some View {
         
-        NavigationStack(path: $path) {
-            
+//        NavigationStack(path: $path) {
+//            
+//            VStack {
+//                Image("fullFormLogo")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 500, height: 400)
+//                
+//                Button("Create A New Account") {
+//                    path.append("New Account")
+//                }
+//                .padding(10)
+//                .buttonStyle(.bordered)
+//                
+//                Button("Sign In With An Existing Account"){
+//                    path.append("Login")
+//                }
+//                .buttonStyle(.bordered)
+//                
+//            }
+//        }
+//        .navigationDestination(for: String.self) { dest in
+//            switch dest {
+//            case "New Account": CreateAccountView()
+//            case "Login": SignInView()
+//            default: CreateAccountView()
+//            }
+//        }
+        
+        
+        NavigationStack() {
             VStack {
                 Image("fullFormLogo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 500, height: 400)
                 
-                Button("Create A New Account") {
-                    path.append("New Account")
+
+                
+                Button {
+                    print("Going to sign in")
+                } label: {
+                    Text("Sign In")
                 }
+                .buttonStyle(.bordered)
                 .padding(10)
-                .buttonStyle(.bordered)
                 
-                Button("Sign In With An Existing Account"){
-                    path.append("Login")
+                Button {
+                    print("Going to sign up")
+                } label: {
+                    Text("Sign up")
                 }
                 .buttonStyle(.bordered)
                 
-            }
-        }
-        .navigationDestination(for: String.self) { dest in
-            switch dest {
-            case "New Account": CreateAccountView()
-            case "Login": SignInView()
-            default: CreateAccountView()
+                Spacer()
+                
+                
+
+
             }
         }
     }
+    
 }
 
 #Preview {
