@@ -1,18 +1,18 @@
 //
-//  LoginView2.swift
+//  CreateAccountView.swift
 //  Cuztom
 //
-//  Created by Pritivi S Chhabria on 7/5/24.
+//  Created by Pritivi S Chhabria on 7/7/24.
 //
 
 import SwiftUI
 
-struct LoginView2: View {
+struct CreateAccountView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    LoginView2()
+    CreateAccountView()
 }
