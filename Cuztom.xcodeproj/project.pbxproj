@@ -23,6 +23,8 @@
 		7257336E2C27855800FAD9BC /* CuztomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7257336D2C27855800FAD9BC /* CuztomTests.swift */; };
 		725733782C27855800FAD9BC /* CuztomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725733772C27855800FAD9BC /* CuztomUITests.swift */; };
 		7257337A2C27855800FAD9BC /* CuztomUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725733792C27855800FAD9BC /* CuztomUITestsLaunchTests.swift */; };
+		72648F0E2C474D8C000A301A /* Aileron-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72648F0D2C474D8C000A301A /* Aileron-Thin.otf */; };
+		72648F102C4AD7C4000A301A /* Aileron-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72648F0F2C4AD7C4000A301A /* Aileron-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,9 @@
 		725733732C27855800FAD9BC /* CuztomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CuztomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		725733772C27855800FAD9BC /* CuztomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuztomUITests.swift; sourceTree = "<group>"; };
 		725733792C27855800FAD9BC /* CuztomUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuztomUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		72648F0B2C474C19000A301A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		72648F0D2C474D8C000A301A /* Aileron-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Thin.otf"; sourceTree = "<group>"; };
+		72648F0F2C4AD7C4000A301A /* Aileron-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +139,7 @@
 		7257335B2C27855600FAD9BC /* Cuztom */ = {
 			isa = PBXGroup;
 			children = (
+				72648F0B2C474C19000A301A /* Info.plist */,
 				7256F3062C37796500D982F0 /* Views */,
 				7257335C2C27855600FAD9BC /* CuztomApp.swift */,
 				725733602C27855800FAD9BC /* Assets.xcassets */,
@@ -141,6 +147,7 @@
 				7256F2F92C3756FD00D982F0 /* Customer.swift */,
 				7256F2FB2C375A2200D982F0 /* Order.swift */,
 				7256F3072C377DDC00D982F0 /* Launch Screen.storyboard */,
+				72648F0C2C474C4E000A301A /* Fonts */,
 			);
 			path = Cuztom;
 			sourceTree = "<group>";
@@ -168,6 +175,15 @@
 				725733792C27855800FAD9BC /* CuztomUITestsLaunchTests.swift */,
 			);
 			path = CuztomUITests;
+			sourceTree = "<group>";
+		};
+		72648F0C2C474C4E000A301A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				72648F0D2C474D8C000A301A /* Aileron-Thin.otf */,
+				72648F0F2C4AD7C4000A301A /* Aileron-Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7256F2F62C374C4900D982F0 /* README.md in Resources */,
+				72648F102C4AD7C4000A301A /* Aileron-Regular.otf in Resources */,
 				725733642C27855800FAD9BC /* Preview Assets.xcassets in Resources */,
+				72648F0E2C474D8C000A301A /* Aileron-Thin.otf in Resources */,
 				7256F3082C377DDC00D982F0 /* Launch Screen.storyboard in Resources */,
 				725733612C27855800FAD9BC /* Assets.xcassets in Resources */,
 			);
@@ -477,6 +495,7 @@
 				DEVELOPMENT_TEAM = PCQJZVBWZR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cuztom/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -506,6 +525,7 @@
 				DEVELOPMENT_TEAM = PCQJZVBWZR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cuztom/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

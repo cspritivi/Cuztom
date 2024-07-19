@@ -13,36 +13,6 @@ struct LoginView1: View {
     
     var body: some View {
         
-//        NavigationStack(path: $path) {
-//            
-//            VStack {
-//                Image("fullFormLogo")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 500, height: 400)
-//                
-//                Button("Create A New Account") {
-//                    path.append("New Account")
-//                }
-//                .padding(10)
-//                .buttonStyle(.bordered)
-//                
-//                Button("Sign In With An Existing Account"){
-//                    path.append("Login")
-//                }
-//                .buttonStyle(.bordered)
-//                
-//            }
-//        }
-//        .navigationDestination(for: String.self) { dest in
-//            switch dest {
-//            case "New Account": CreateAccountView()
-//            case "Login": SignInView()
-//            default: CreateAccountView()
-//            }
-//        }
-        
-        
         NavigationStack() {
             VStack {
                 Image("fullFormLogo")
@@ -50,12 +20,13 @@ struct LoginView1: View {
                     .scaledToFit()
                     .frame(width: 500, height: 400)
                 
-
                 
                 Button {
                     print("Going to sign in")
                 } label: {
                     Text("Sign In")
+                        .font(.custom("Aileron-Thin", size: 25))
+                        .frame(width: UIScreen.main.bounds.size.width * 0.75)
                 }
                 .buttonStyle(.bordered)
                 .padding(10)
@@ -64,13 +35,22 @@ struct LoginView1: View {
                     print("Going to sign up")
                 } label: {
                     Text("Sign up")
+                        .font(.custom("Aileron-Thin", size: 25))
+                        .frame(width: UIScreen.main.bounds.size.width * 0.75)
                 }
                 .buttonStyle(.bordered)
                 
                 Spacer()
                 
+                Button {
+                    print("Preview App")
+                } label: {
+                    Text("Sign Up Later")
+                        .font(.custom("Aileron-Regular", size: 18))
+                }
                 
-
+                
+                
 
             }
         }
