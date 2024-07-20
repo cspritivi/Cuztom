@@ -25,6 +25,8 @@
 		7257337A2C27855800FAD9BC /* CuztomUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725733792C27855800FAD9BC /* CuztomUITestsLaunchTests.swift */; };
 		72648F0E2C474D8C000A301A /* Aileron-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72648F0D2C474D8C000A301A /* Aileron-Thin.otf */; };
 		72648F102C4AD7C4000A301A /* Aileron-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72648F0F2C4AD7C4000A301A /* Aileron-Regular.otf */; };
+		72648F152C4B3443000A301A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72648F142C4B3443000A301A /* InputView.swift */; };
+		72648F172C4B3E8F000A301A /* Voga-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72648F162C4B3E8F000A301A /* Voga-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		72648F0B2C474C19000A301A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		72648F0D2C474D8C000A301A /* Aileron-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Thin.otf"; sourceTree = "<group>"; };
 		72648F0F2C4AD7C4000A301A /* Aileron-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Regular.otf"; sourceTree = "<group>"; };
+		72648F142C4B3443000A301A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		72648F162C4B3E8F000A301A /* Voga-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Voga-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		7256F3062C37796500D982F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				72648F112C4B3412000A301A /* Components */,
 				7256F3092C37811100D982F0 /* Login */,
 				7257335E2C27855600FAD9BC /* ContentView.swift */,
 				7256F2FD2C37703A00D982F0 /* HomeView.swift */,
@@ -182,8 +187,17 @@
 			children = (
 				72648F0D2C474D8C000A301A /* Aileron-Thin.otf */,
 				72648F0F2C4AD7C4000A301A /* Aileron-Regular.otf */,
+				72648F162C4B3E8F000A301A /* Voga-Medium.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		72648F112C4B3412000A301A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				72648F142C4B3443000A301A /* InputView.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7256F2F62C374C4900D982F0 /* README.md in Resources */,
+				72648F172C4B3E8F000A301A /* Voga-Medium.otf in Resources */,
 				72648F102C4AD7C4000A301A /* Aileron-Regular.otf in Resources */,
 				725733642C27855800FAD9BC /* Preview Assets.xcassets in Resources */,
 				72648F0E2C474D8C000A301A /* Aileron-Thin.otf in Resources */,
@@ -327,6 +342,7 @@
 				7257335F2C27855600FAD9BC /* ContentView.swift in Sources */,
 				7256F2FC2C375A2200D982F0 /* Order.swift in Sources */,
 				7256F2FE2C37703A00D982F0 /* HomeView.swift in Sources */,
+				72648F152C4B3443000A301A /* InputView.swift in Sources */,
 				7256F3022C37718B00D982F0 /* ProfileView.swift in Sources */,
 				7257335D2C27855600FAD9BC /* CuztomApp.swift in Sources */,
 			);

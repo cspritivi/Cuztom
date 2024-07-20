@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Voga-Medium.otf</string>
 		<string>Aileron-Thin.otf</string>
 		<string>Aileron-Regular.otf</string>
 	</array>

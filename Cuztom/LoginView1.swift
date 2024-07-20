@@ -18,41 +18,49 @@ struct LoginView1: View {
                 Image("fullFormLogo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 500, height: 400)
+                    .frame(width: UIScreen.main.bounds.size.width * 0.50,
+                           height: 200)
+                    .padding(.bottom, 100)
                 
                 
                 Button {
                     print("Going to sign in")
                 } label: {
-                    Text("Sign In")
-                        .font(.custom("Aileron-Thin", size: 25))
-                        .frame(width: UIScreen.main.bounds.size.width * 0.75)
+                    Text("SIGN IN")
+                        .font(.custom("Aileron-Thin", size: 24))
+                        .frame(width: UIScreen.main.bounds.size.width * 0.75,
+                               height: 40)
                 }
                 .buttonStyle(.bordered)
+//                .foregroundStyle(Color(.black))
                 .padding(10)
                 
                 Button {
                     print("Going to sign up")
                 } label: {
-                    Text("Sign up")
-                        .font(.custom("Aileron-Thin", size: 25))
-                        .frame(width: UIScreen.main.bounds.size.width * 0.75)
+                    Text("CREATE A NEW ACCOUNT")
+                        .font(.custom("Aileron-Thin", size: 24))
+                        .frame(width: UIScreen.main.bounds.size.width * 0.75,
+                               height: 40)
                 }
                 .buttonStyle(.bordered)
+//                .foregroundStyle(Color(.black))
                 
                 Spacer()
                 
                 Button {
                     print("Preview App")
                 } label: {
-                    Text("Sign Up Later")
-                        .font(.custom("Aileron-Regular", size: 18))
+                    Text("SIGN UP LATER")
+                        .font(.custom("Aileron-Regular", size: 15))
                 }
+//                .foregroundStyle(Color(.black))
                 
                 
                 
 
             }
+            .foregroundStyle(Color(.black))
         }
     }
     
