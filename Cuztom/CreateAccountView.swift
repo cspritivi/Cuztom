@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CreateAccountView: View {
     
+    //This stuff needs to go in the viewModel
+    
     @State private var fullname:String = ""
     @State private var email = ""
     @State private var password = ""
