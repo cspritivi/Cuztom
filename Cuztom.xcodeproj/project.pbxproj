@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300A2C755AD6006EF167 /* AuthViewModel.swift */; };
 		7256F2F62C374C4900D982F0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7256F2F52C374C4900D982F0 /* README.md */; };
 		7256F2FA2C3756FD00D982F0 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7256F2F92C3756FD00D982F0 /* Customer.swift */; };
 		7256F2FC2C375A2200D982F0 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7256F2FB2C375A2200D982F0 /* Order.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		724E300A2C755AD6006EF167 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		7256F2F52C374C4900D982F0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7256F2F92C3756FD00D982F0 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		7256F2FB2C375A2200D982F0 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				7256F30A2C37813900D982F0 /* LoginView1.swift */,
 				7256F3342C3B5A1200D982F0 /* SignInView.swift */,
 				7256F3362C3B5A2D00D982F0 /* CreateAccountView.swift */,
+				724E300A2C755AD6006EF167 /* AuthViewModel.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				7257335F2C27855600FAD9BC /* ContentView.swift in Sources */,
 				7256F2FC2C375A2200D982F0 /* Order.swift in Sources */,
 				7256F2FE2C37703A00D982F0 /* HomeView.swift in Sources */,
+				724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */,
 				72648F152C4B3443000A301A /* InputView.swift in Sources */,
 				7256F3022C37718B00D982F0 /* ProfileView.swift in Sources */,
 				7257335D2C27855600FAD9BC /* CuztomApp.swift in Sources */,

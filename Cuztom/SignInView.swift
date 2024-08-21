@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignInView: View {
+    
+    @StateObject private var authViewModel = AuthViewModel()
     @State private var email = ""
     @State private var password = ""
     
@@ -30,18 +32,19 @@ struct SignInView: View {
                 
                 //Form Fields
                 VStack(spacing: 24) {
-                    InputView(text: $email,
+                    InputView(text: $authViewModel.email,
                               title: "EMAIL ADDRESS",
                               placeholder: "ENTER YOUR EMAIL ADDRESS")
                     .textInputAutocapitalization(.never)
                     
-                    InputView(text: $password,
+                    InputView(text: $authViewModel.password,
                               title: "PASSWORD",
                               placeholder: "ENTER YOUR PASSWORD",
                               isSecureField: true)
                     
                     Button  {
                         print("Signing In...")
+                        authViewModel.signin()
                     } label: {
                         HStack {
                             Text("SIGN IN")
@@ -65,7 +68,7 @@ struct SignInView: View {
                 Spacer()
                 
                 NavigationLink {
-                    
+                    CreateAccountView()
                 } label: {
                     HStack (spacing: 3) {
                         Text("DON'T HAVE AN ACCOUNT?")
@@ -77,9 +80,9 @@ struct SignInView: View {
                     }
                     .foregroundStyle(Color(.black))
                 }
-                
             }
         }
+//        .navigationBarBackButtonHidden()
     }
 }
 

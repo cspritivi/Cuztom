@@ -9,22 +9,30 @@ import SwiftUI
 
 struct LoginView1: View {
     
-    @State private var path = NavigationPath()
+    @StateObject private var authViewModel = AuthViewModel()
     
     var body: some View {
         
         NavigationStack() {
             VStack {
+//                Image("fullFormLogo")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: UIScreen.main.bounds.size.width * 0.50,
+//                           height: 200)
+//                    .padding(.bottom, 100)
+                
                 Image("fullFormLogo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: UIScreen.main.bounds.size.width * 0.50,
+                    .frame(width: UIScreen.main.bounds.width * 0.5,
                            height: 200)
                     .padding(.bottom, 100)
+                    .padding(.top, 44)
                 
-                
-                Button {
-                    print("Going to sign in")
+                NavigationLink {
+                    SignInView()
+                        .environmentObject(authViewModel)
                 } label: {
                     Text("SIGN IN")
                         .font(.custom("Aileron-Thin", size: 24))
@@ -32,11 +40,10 @@ struct LoginView1: View {
                                height: 40)
                 }
                 .buttonStyle(.bordered)
-//                .foregroundStyle(Color(.black))
                 .padding(10)
                 
-                Button {
-                    print("Going to sign up")
+                NavigationLink {
+                    CreateAccountView()
                 } label: {
                     Text("CREATE A NEW ACCOUNT")
                         .font(.custom("Aileron-Thin", size: 24))
@@ -44,7 +51,7 @@ struct LoginView1: View {
                                height: 40)
                 }
                 .buttonStyle(.bordered)
-//                .foregroundStyle(Color(.black))
+                .padding(10)
                 
                 Spacer()
                 
