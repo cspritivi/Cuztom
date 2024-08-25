@@ -16,6 +16,8 @@ struct CreateAccountView: View {
     @State private var password = ""
     @State private var confirmPassword = ""
     
+    @EnvironmentObject private var authViewModel: AuthViewModel
+    
     var body: some View {
         VStack {
             Image("fullFormLogo")
@@ -85,4 +87,5 @@ struct CreateAccountView: View {
 
 #Preview {
     CreateAccountView()
+        .environmentObject(AuthViewModel())
 }

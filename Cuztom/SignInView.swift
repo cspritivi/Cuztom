@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignInView: View {
     
-    @StateObject private var authViewModel = AuthViewModel()
+    @EnvironmentObject private var authViewModel: AuthViewModel
     @State private var email = ""
     @State private var password = ""
     
@@ -43,7 +43,7 @@ struct SignInView: View {
                               isSecureField: true)
                     
                     Button  {
-                        print("Signing In...")
+                        print("Signing In..")
                         authViewModel.signin()
                     } label: {
                         HStack {
@@ -59,6 +59,8 @@ struct SignInView: View {
 //                    .background(Color(.systemGray6))
                     .padding(.top, 24)
                     .buttonStyle(.bordered)
+                    
+                    Text("\(authViewModel.isAuthenticated)")
                     
                     
                 }
@@ -88,4 +90,5 @@ struct SignInView: View {
 
 #Preview {
     SignInView()
+        .environmentObject(AuthViewModel())
 }

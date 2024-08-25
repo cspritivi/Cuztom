@@ -9,11 +9,11 @@ import SwiftUI
 
 struct LoginView1: View {
     
-    @StateObject private var authViewModel = AuthViewModel()
+    @EnvironmentObject private var authViewModel: AuthViewModel
     
     var body: some View {
         
-        NavigationStack() {
+        NavigationStack {
             VStack {
 //                Image("fullFormLogo")
 //                    .resizable()
@@ -52,6 +52,7 @@ struct LoginView1: View {
                 }
                 .buttonStyle(.bordered)
                 .padding(10)
+                Text("\(authViewModel.isAuthenticated)")
                 
                 Spacer()
                 
@@ -75,4 +76,5 @@ struct LoginView1: View {
 
 #Preview {
     LoginView1()
+        .environmentObject(AuthViewModel())
 }

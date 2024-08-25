@@ -14,25 +14,29 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
+            
             if authViewModel.isAuthenticated {
-                TabView {
-                    HomeView()
-                    .tabItem {
-                        Label("Home", systemImage: "house.fill")
+                NavigationStack {
+                    TabView {
+                        HomeView()
+                            .tabItem {
+                                Label("Home", systemImage: "house.fill")
+                            }
+                        
+                        ProfileView()
+                            .tabItem {
+                                Label("Profile", systemImage: "person.crop.circle.fill")
+                            }
+                        
+                        
                     }
-                    
-                    ProfileView()
-                    .tabItem {
-                            Label("Profile", systemImage: "person.crop.circle.fill")
-                    }
-                    
-                    
                 }
+                
             } else {
                 LoginView1()
-                    .environmentObject(authViewModel)
             }
         }
+        .environmentObject(authViewModel)
     }
 }
 

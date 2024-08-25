@@ -15,7 +15,6 @@ class AuthViewModel: ObservableObject {
     
     func signin() {
         isAuthenticated.toggle()
-        objectWillChange.send()
     }
     
     func signup() {
