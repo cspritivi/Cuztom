@@ -9,8 +9,6 @@ import SwiftUI
 
 struct LoginView1: View {
     
-    @EnvironmentObject private var authViewModel: AuthViewModel
-    
     var body: some View {
         
         NavigationStack {
@@ -32,7 +30,6 @@ struct LoginView1: View {
                 
                 NavigationLink {
                     SignInView()
-                        .environmentObject(authViewModel)
                 } label: {
                     Text("SIGN IN")
                         .font(.custom("Aileron-Thin", size: 24))
@@ -52,7 +49,6 @@ struct LoginView1: View {
                 }
                 .buttonStyle(.bordered)
                 .padding(10)
-                Text("\(authViewModel.isAuthenticated)")
                 
                 Spacer()
                 

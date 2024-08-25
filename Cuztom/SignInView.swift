@@ -29,22 +29,21 @@ struct SignInView: View {
                     .font(.custom("Aileron-Thin", size: 30))
                 
                 
-                
                 //Form Fields
                 VStack(spacing: 24) {
-                    InputView(text: $authViewModel.email,
+                    InputView(text: $email,
                               title: "EMAIL ADDRESS",
                               placeholder: "ENTER YOUR EMAIL ADDRESS")
                     .textInputAutocapitalization(.never)
                     
-                    InputView(text: $authViewModel.password,
+                    InputView(text: $password,
                               title: "PASSWORD",
                               placeholder: "ENTER YOUR PASSWORD",
                               isSecureField: true)
                     
                     Button  {
                         print("Signing In..")
-                        authViewModel.signin()
+                        authViewModel.signin(email, password)
                     } label: {
                         HStack {
                             Text("SIGN IN")
@@ -60,7 +59,7 @@ struct SignInView: View {
                     .padding(.top, 24)
                     .buttonStyle(.bordered)
                     
-                    Text("\(authViewModel.isAuthenticated)")
+//                    Text("\(authViewModel.isAuthenticated)")
                     
                     
                 }

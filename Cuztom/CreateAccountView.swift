@@ -54,6 +54,7 @@ struct CreateAccountView: View {
             
             Button  {
                 print("Signing up...")
+                authViewModel.signup(fullname, email, password, confirmPassword)
             } label: {
                 HStack {
                     Text("SIGN UP")

@@ -9,15 +9,14 @@ import Foundation
 import SwiftUI
 
 class AuthViewModel: ObservableObject {
-    @Published var email = ""
-    @Published var password = ""
     @Published var isAuthenticated = false
+    @Published var customer: Customer? = nil
     
-    func signin() {
-        isAuthenticated.toggle()
+    func signin(_ email: String, _ password: String) {
+        isAuthenticated = true
     }
     
-    func signup() {
+    func signup(_ email: String, _ fullname: String, _ password : String, _ confirmPassword: String) {
         isAuthenticated = true
     }
 }
