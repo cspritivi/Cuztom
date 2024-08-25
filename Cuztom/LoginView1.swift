@@ -13,12 +13,6 @@ struct LoginView1: View {
         
         NavigationStack {
             VStack {
-//                Image("fullFormLogo")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: UIScreen.main.bounds.size.width * 0.50,
-//                           height: 200)
-//                    .padding(.bottom, 100)
                 
                 Image("fullFormLogo")
                     .resizable()
@@ -58,11 +52,6 @@ struct LoginView1: View {
                     Text("SIGN UP LATER")
                         .font(.custom("Aileron-Regular", size: 15))
                 }
-//                .foregroundStyle(Color(.black))
-                
-                
-                
-
             }
             .foregroundStyle(Color(.black))
         }

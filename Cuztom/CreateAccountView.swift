@@ -11,7 +11,7 @@ struct CreateAccountView: View {
     
     //This stuff needs to go in the viewModel
     
-    @State private var fullname:String = ""
+    @State private var fullName:String = ""
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPassword = ""
@@ -31,7 +31,7 @@ struct CreateAccountView: View {
             
             VStack(spacing:24) {
                 
-                InputView(text: $fullname,
+                InputView(text: $fullName,
                           title: "NAME",
                           placeholder: "ENTER YOUR NAME")
                 
@@ -43,18 +43,39 @@ struct CreateAccountView: View {
                           title: "PASSWORD",
                           placeholder: "ENTER YOUR PASSWORD",
                           isSecureField: true)
+                .textContentType(.oneTimeCode)
                 
-                InputView(text: $confirmPassword, 
-                          title: "CONFIRM PASSWORD",
-                          placeholder: "ENTER YOUR PASSWORD AGAIN",
-                          isSecureField: true)
+                ZStack(alignment: .trailing) {
+                    InputView(text: $confirmPassword, 
+                              title: "CONFIRM PASSWORD",
+                              placeholder: "ENTER YOUR PASSWORD AGAIN",
+                              isSecureField: true)
+                    .textContentType(.oneTimeCode)
+                    
+                    if !password.isEmpty && !confirmPassword.isEmpty {
+                        if password == confirmPassword {
+                            Image(systemName: "checkmark.circle.fill")
+                                .imageScale(.large)
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color(.gray))
+                        } else {
+                            Image(systemName: "xmark.circle.fill")
+                                .imageScale(.large)
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color(.gray))
+                        }
+                    }
+                }
             }
             .padding(.horizontal)
             .padding(.top, 15)
             
             Button  {
-                print("Signing up...")
-                authViewModel.signup(fullname, email, password, confirmPassword)
+                Task {
+                    try await authViewModel.signUp(withEmail: email,
+                                                   fullName: fullName,
+                                                   password: password)
+                }
             } label: {
                 HStack {
                     Text("SIGN UP")
@@ -69,6 +90,8 @@ struct CreateAccountView: View {
             .background(Color(.systemGray6))
             .padding(.top, 24)
             .buttonStyle(.bordered)
+            .disabled(!formIsValid)
+            .opacity(formIsValid ? 1.0 : 0.5)
                 
             Spacer()
             
@@ -83,6 +106,15 @@ struct CreateAccountView: View {
             })
             
         }
+    }
+}
+
+extension CreateAccountView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !fullName.isEmpty
+        && email.contains("@")
+        && password.count > 5
+        && password == confirmPassword
     }
 }
 

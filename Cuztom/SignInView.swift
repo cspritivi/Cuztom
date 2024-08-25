@@ -42,8 +42,9 @@ struct SignInView: View {
                               isSecureField: true)
                     
                     Button  {
-                        print("Signing In..")
-                        authViewModel.signin(email, password)
+                        Task {
+                            try await authViewModel.signIn(withEmail: email, password: password)
+                        }
                     } label: {
                         HStack {
                             Text("SIGN IN")
@@ -58,6 +59,8 @@ struct SignInView: View {
 //                    .background(Color(.systemGray6))
                     .padding(.top, 24)
                     .buttonStyle(.bordered)
+                    .disabled(!formIsValid)
+                    .opacity(formIsValid ? 1.0 : 0.5)
                     
 //                    Text("\(authViewModel.isAuthenticated)")
                     
@@ -84,6 +87,13 @@ struct SignInView: View {
             }
         }
 //        .navigationBarBackButtonHidden()
+    }
+}
+
+extension SignInView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return email.contains("@")
+        && password.count > 5
     }
 }
 

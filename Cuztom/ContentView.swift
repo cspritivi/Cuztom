@@ -9,37 +9,47 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject private var authViewModel = AuthViewModel()
+    @EnvironmentObject private var authViewModel: AuthViewModel
     
     var body: some View {
-        
-        NavigationView {
-            
-            if authViewModel.isAuthenticated {
-                NavigationStack {
-                    TabView {
-                        HomeView()
-                            .tabItem {
-                                Label("Home", systemImage: "house.fill")
-                            }
-                        
-                        ProfileView()
-                            .tabItem {
-                                Label("Profile", systemImage: "person.crop.circle.fill")
-                            }
-                        
-                        
-                    }
-                }
-                
+        Group {
+            if authViewModel.userSession != nil {
+                ProfileView()
             } else {
                 LoginView1()
             }
         }
-        .environmentObject(authViewModel)
     }
+    
+//    var body: some View {
+//        
+//        NavigationView {
+//            
+//            if authViewModel.isAuthenticated {
+//                NavigationStack {
+//                    TabView {
+//                        HomeView()
+//                            .tabItem {
+//                                Label("Home", systemImage: "house.fill")
+//                            }
+//                        
+//                        ProfileView()
+//                            .tabItem {
+//                                Label("Profile", systemImage: "person.crop.circle.fill")
+//                            }
+//                        
+//                        
+//                    }
+//                }
+//                
+//            } else {
+//                LoginView1()
+//            }
+//        }
+//    }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(AuthViewModel())
 }
