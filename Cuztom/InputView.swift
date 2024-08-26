@@ -24,9 +24,11 @@ struct InputView: View {
             if isSecureField {
                 SecureField(placeholder, text: $text)
                     .font(.custom("Aileron-Regular", size: 14))
+                    .accessibilityIdentifier("\(title.lowercased())")
             } else {
                 TextField(placeholder, text: $text)
                     .font(.custom("Aileron-Regular", size: 14))
+                    .accessibilityIdentifier("\(title.lowercased())")
             }
             
             Divider()

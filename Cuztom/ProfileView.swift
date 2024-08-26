@@ -28,9 +28,11 @@ struct ProfileView: View {
                             Text(user.fullName)
                                 .fontWeight(.semibold)
                                 .padding(.top, 4)
+                                .accessibilityIdentifier("fullname")
                             Text(user.email)
                                 .font(.footnote)
                                 .foregroundStyle(Color(.gray))
+                                .accessibilityIdentifier("email")
                         }
                     }
                 }
@@ -54,12 +56,14 @@ struct ProfileView: View {
                     } label: {
                         SettingsRowView(imageName: "arrow.left.circle.fill", title: "Sign Out", tint: Color(.red))
                     }
+                    .accessibilityIdentifier("sign out button")
                     
                     Button {
                         print("delete account")
                     } label: {
                         SettingsRowView(imageName: "xmark.circle.fill", title: "Delete Account", tint: Color(.red))
                     }
+                    .accessibilityIdentifier("delete account button")
                     
                     
                 }

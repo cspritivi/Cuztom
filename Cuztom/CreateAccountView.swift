@@ -25,6 +25,7 @@ struct CreateAccountView: View {
                 .scaledToFit()
                 .frame(width: UIScreen.main.bounds.width * 0.5,
                        height: 200)
+                .accessibilityIdentifier("logo")
             
             Text("CREATE A NEW ACCOUNT")
                 .font(.custom("Aileron-Thin", size: 30))
@@ -92,6 +93,7 @@ struct CreateAccountView: View {
             .buttonStyle(.bordered)
             .disabled(!formIsValid)
             .opacity(formIsValid ? 1.0 : 0.5)
+            .accessibilityIdentifier("sign up button")
                 
             Spacer()
             

@@ -32,6 +32,7 @@ struct LoginView1: View {
                 }
                 .buttonStyle(.bordered)
                 .padding(10)
+                .accessibilityIdentifier("go to sign in")
                 
                 NavigationLink {
                     CreateAccountView()
@@ -43,6 +44,7 @@ struct LoginView1: View {
                 }
                 .buttonStyle(.bordered)
                 .padding(10)
+                .accessibilityIdentifier("go to sign up")
                 
                 Spacer()
                 
