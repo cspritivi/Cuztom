@@ -32,6 +32,7 @@ struct InputView: View {
             }
             
             Divider()
+                .padding(.bottom, 24)
         })
     }
 }

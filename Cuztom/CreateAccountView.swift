@@ -30,7 +30,7 @@ struct CreateAccountView: View {
             Text("CREATE A NEW ACCOUNT")
                 .font(.custom("Aileron-Thin", size: 30))
             
-            VStack(spacing:24) {
+            VStack {
                 
                 InputView(text: $fullName,
                           title: "NAME",
@@ -67,33 +67,33 @@ struct CreateAccountView: View {
                         }
                     }
                 }
+                
+                Button  {
+                    Task {
+                        try await authViewModel.signUp(withEmail: email,
+                                                       fullName: fullName,
+                                                       password: password)
+                    }
+                } label: {
+                    HStack {
+                        Text("SIGN UP")
+                            .font(.custom("Aileron-Regular", size: 15))
+                        Image(systemName: "arrow.right")
+                    }
+                    .foregroundColor(.black)
+                    .frame(width: UIScreen.main.bounds.size.width * 0.85,
+                           height: 20)
+                    
+                }
+                .background(Color(.systemGray6))
+//                .padding(.top, 24)
+                .buttonStyle(.bordered)
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1.0 : 0.5)
+                .accessibilityIdentifier("sign up button")
             }
             .padding(.horizontal)
             .padding(.top, 15)
-            
-            Button  {
-                Task {
-                    try await authViewModel.signUp(withEmail: email,
-                                                   fullName: fullName,
-                                                   password: password)
-                }
-            } label: {
-                HStack {
-                    Text("SIGN UP")
-                        .font(.custom("Aileron-Regular", size: 15))
-                    Image(systemName: "arrow.right")
-                }
-                .foregroundColor(.black)
-                .frame(width: UIScreen.main.bounds.size.width * 0.85,
-                       height: 20)
-                
-            }
-            .background(Color(.systemGray6))
-            .padding(.top, 24)
-            .buttonStyle(.bordered)
-            .disabled(!formIsValid)
-            .opacity(formIsValid ? 1.0 : 0.5)
-            .accessibilityIdentifier("sign up button")
                 
             Spacer()
             

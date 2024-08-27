@@ -33,6 +33,10 @@ final class LoginWorkflowTests: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        let deleteAccountButton = app.buttons["delete account button"]
+        if deleteAccountButton.exists {
+            deleteAccountButton.tap()
+        }
         app = nil
     }
     
@@ -72,12 +76,16 @@ final class LoginWorkflowTests: XCTestCase {
         
         let pointOnImage = app.images["logo"].coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
         pointOnImage.press(forDuration: 0.1)
+        //The above code is supposed to dismiss the keyboard, but it doesn't
+        //Idea: Make the view scrollable and then programmatically scroll
         
         XCTAssert(signUpButton.isEnabled)
         signUpButton.tap()
         
+        //Give the program time to load the next view
+        
         let fullname = app.staticTexts["fullname"]
-        XCTAssert(fullname.exists)
+        XCTAssert(fullname.waitForExistence(timeout: 5))
         XCTAssertEqual(fullname.label, fields["name"])
         
         let email = app.staticTexts["email"]

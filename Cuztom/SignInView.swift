@@ -30,7 +30,7 @@ struct SignInView: View {
                 
                 
                 //Form Fields
-                VStack(spacing: 24) {
+                VStack {
                     InputView(text: $email,
                               title: "EMAIL ADDRESS",
                               placeholder: "ENTER YOUR EMAIL ADDRESS")
@@ -57,7 +57,7 @@ struct SignInView: View {
                         
                     }
 //                    .background(Color(.systemGray6))
-                    .padding(.top, 24)
+//                    .padding(.top, 24)
                     .buttonStyle(.bordered)
                     .disabled(!formIsValid)
                     .opacity(formIsValid ? 1.0 : 0.5)
