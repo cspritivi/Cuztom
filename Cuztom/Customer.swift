@@ -7,16 +7,12 @@
 
 import UIKit
 
-class Customer: NSObject {
+struct Customer {
     var name: String;
-    var address: String;
-    var phoneNumber: Int;
+    var email: String;
     
-    init(name: String, address: String, phoneNumber: Int) {
+    init(name: String, email: String) {
         self.name = name
-        self.address = address
-        self.phoneNumber = phoneNumber
+        self.email = email
     }
-    
-    
 }

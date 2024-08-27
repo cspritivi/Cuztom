@@ -9,70 +9,53 @@ import SwiftUI
 
 struct LoginView1: View {
     
-    @State private var path = NavigationPath()
-    
     var body: some View {
         
-//        NavigationStack(path: $path) {
-//            
-//            VStack {
-//                Image("fullFormLogo")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 500, height: 400)
-//                
-//                Button("Create A New Account") {
-//                    path.append("New Account")
-//                }
-//                .padding(10)
-//                .buttonStyle(.bordered)
-//                
-//                Button("Sign In With An Existing Account"){
-//                    path.append("Login")
-//                }
-//                .buttonStyle(.bordered)
-//                
-//            }
-//        }
-//        .navigationDestination(for: String.self) { dest in
-//            switch dest {
-//            case "New Account": CreateAccountView()
-//            case "Login": SignInView()
-//            default: CreateAccountView()
-//            }
-//        }
-        
-        
-        NavigationStack() {
+        NavigationStack {
             VStack {
+                
                 Image("fullFormLogo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 500, height: 400)
+                    .frame(width: UIScreen.main.bounds.width * 0.5,
+                           height: 200)
+                    .padding(.bottom, 100)
+                    .padding(.top, 44)
                 
-
-                
-                Button {
-                    print("Going to sign in")
+                NavigationLink {
+                    SignInView()
                 } label: {
-                    Text("Sign In")
+                    Text("SIGN IN")
+                        .font(.custom("Aileron-Thin", size: 24))
+                        .frame(width: UIScreen.main.bounds.size.width * 0.75,
+                               height: 40)
                 }
                 .buttonStyle(.bordered)
                 .padding(10)
+                .accessibilityIdentifier("go to sign in")
                 
-                Button {
-                    print("Going to sign up")
+                NavigationLink {
+                    CreateAccountView()
                 } label: {
-                    Text("Sign up")
+                    Text("CREATE A NEW ACCOUNT")
+                        .font(.custom("Aileron-Thin", size: 24))
+                        .frame(width: UIScreen.main.bounds.size.width * 0.75,
+                               height: 40)
                 }
                 .buttonStyle(.bordered)
+                .padding(10)
+                .accessibilityIdentifier("go to sign up")
                 
                 Spacer()
                 
-                
-
-
+                Button {
+                    print("Preview App")
+                } label: {
+                    Text("SIGN UP LATER")
+                        .font(.custom("Aileron-Regular", size: 15))
+                }
             }
+            .foregroundStyle(Color(.black))
         }
     }
     
@@ -80,4 +63,5 @@ struct LoginView1: View {
 
 #Preview {
     LoginView1()
+        .environmentObject(AuthViewModel())
 }
