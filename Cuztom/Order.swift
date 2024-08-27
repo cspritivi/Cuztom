@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Order: NSObject {
+struct Order {
     
     let id: Int;
     var customer: Customer;
@@ -17,4 +17,5 @@ class Order: NSObject {
         self.id = id;
         self.customer = customer;
     }
+    
 }
