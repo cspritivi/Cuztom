@@ -35,10 +35,12 @@ struct CreateAccountView: View {
                 InputView(text: $fullName,
                           title: "NAME",
                           placeholder: "ENTER YOUR NAME")
+                .textInputAutocapitalization(.words)
                 
                 InputView(text: $email,
                           title: "EMAIL",
                           placeholder: "ENTER YOUR EMAIL ADDRESS")
+                .textInputAutocapitalization(.never)
                 
                 InputView(text: $password,
                           title: "PASSWORD",

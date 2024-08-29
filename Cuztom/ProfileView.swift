@@ -12,6 +12,8 @@ struct ProfileView: View {
     
     @EnvironmentObject private var authViewModel: AuthViewModel
     
+    var settings: [SettingsRowView] = []
+    
     var body: some View {
         if let user = authViewModel.currentUser {
             List {
@@ -34,6 +36,14 @@ struct ProfileView: View {
                                 .foregroundStyle(Color(.gray))
                                 .accessibilityIdentifier("email")
                         }
+                    }
+                }
+                
+                Section("Clothing") {
+                    NavigationStack {
+                            NavigationLink(destination: MeasurementView(), label : {
+                                SettingsRowView(imageName: "pencil.and.list.clipboard", title: "Measurements", tint: Color(.blue))
+                            })
                     }
                 }
                 

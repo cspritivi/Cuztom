@@ -10,7 +10,6 @@
 		724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300A2C755AD6006EF167 /* AuthViewModel.swift */; };
 		724E300D2C7BB581006EF167 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300C2C7BB581006EF167 /* SettingsRowView.swift */; };
 		724E300F2C7BB839006EF167 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300E2C7BB839006EF167 /* User.swift */; };
-		724E30112C7BC0F6006EF167 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 724E30102C7BC0F6006EF167 /* GoogleService-Info.plist */; };
 		724E30142C7BC204006EF167 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 724E30132C7BC204006EF167 /* FirebaseAuth */; };
 		724E30162C7BC204006EF167 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 724E30152C7BC204006EF167 /* FirebaseFirestore */; };
 		724E30182C7BC204006EF167 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 724E30172C7BC204006EF167 /* FirebaseStorage */; };
@@ -38,6 +37,9 @@
 		72648F102C4AD7C4000A301A /* Aileron-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72648F0F2C4AD7C4000A301A /* Aileron-Regular.otf */; };
 		72648F152C4B3443000A301A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72648F142C4B3443000A301A /* InputView.swift */; };
 		72648F172C4B3E8F000A301A /* Voga-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72648F162C4B3E8F000A301A /* Voga-Medium.otf */; };
+		7284B8EF2C801DB5008A4ADD /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7284B8EE2C801DB5008A4ADD /* MeasurementView.swift */; };
+		7284B8F12C802311008A4ADD /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7284B8F02C802311008A4ADD /* Measurement.swift */; };
+		72ABEA3A2C7D586D00FECEA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72ABEA392C7D586D00FECEA1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +63,6 @@
 		724E300A2C755AD6006EF167 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		724E300C2C7BB581006EF167 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		724E300E2C7BB839006EF167 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		724E30102C7BC0F6006EF167 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		724E30192C7C085B006EF167 /* LoginWorkflowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorkflowTests.swift; sourceTree = "<group>"; };
 		7256F2F52C374C4900D982F0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7256F2F92C3756FD00D982F0 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
@@ -87,6 +88,9 @@
 		72648F0F2C4AD7C4000A301A /* Aileron-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Regular.otf"; sourceTree = "<group>"; };
 		72648F142C4B3443000A301A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		72648F162C4B3E8F000A301A /* Voga-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Voga-Medium.otf"; sourceTree = "<group>"; };
+		7284B8EE2C801DB5008A4ADD /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
+		7284B8F02C802311008A4ADD /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		72ABEA392C7D586D00FECEA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 		7256F3062C37796500D982F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7284B8ED2C800E32008A4ADD /* Measurement */,
 				72648F112C4B3412000A301A /* Components */,
 				7256F3092C37811100D982F0 /* Login */,
 				7257335E2C27855600FAD9BC /* ContentView.swift */,
@@ -175,7 +180,7 @@
 		7257335B2C27855600FAD9BC /* Cuztom */ = {
 			isa = PBXGroup;
 			children = (
-				724E30102C7BC0F6006EF167 /* GoogleService-Info.plist */,
+				72ABEA392C7D586D00FECEA1 /* GoogleService-Info.plist */,
 				72648F0B2C474C19000A301A /* Info.plist */,
 				7256F3062C37796500D982F0 /* Views */,
 				7257335C2C27855600FAD9BC /* CuztomApp.swift */,
@@ -233,6 +238,15 @@
 				724E300C2C7BB581006EF167 /* SettingsRowView.swift */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		7284B8ED2C800E32008A4ADD /* Measurement */ = {
+			isa = PBXGroup;
+			children = (
+				7284B8EE2C801DB5008A4ADD /* MeasurementView.swift */,
+				7284B8F02C802311008A4ADD /* Measurement.swift */,
+			);
+			name = Measurement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,7 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7256F2F62C374C4900D982F0 /* README.md in Resources */,
-				724E30112C7BC0F6006EF167 /* GoogleService-Info.plist in Resources */,
+				72ABEA3A2C7D586D00FECEA1 /* GoogleService-Info.plist in Resources */,
 				72648F172C4B3E8F000A301A /* Voga-Medium.otf in Resources */,
 				72648F102C4AD7C4000A301A /* Aileron-Regular.otf in Resources */,
 				725733642C27855800FAD9BC /* Preview Assets.xcassets in Resources */,
@@ -386,9 +400,11 @@
 			files = (
 				724E300F2C7BB839006EF167 /* User.swift in Sources */,
 				7256F3352C3B5A1200D982F0 /* SignInView.swift in Sources */,
+				7284B8F12C802311008A4ADD /* Measurement.swift in Sources */,
 				7256F2FA2C3756FD00D982F0 /* Customer.swift in Sources */,
 				7256F30B2C37813900D982F0 /* LoginView1.swift in Sources */,
 				7256F3372C3B5A2D00D982F0 /* CreateAccountView.swift in Sources */,
+				7284B8EF2C801DB5008A4ADD /* MeasurementView.swift in Sources */,
 				7257335F2C27855600FAD9BC /* ContentView.swift in Sources */,
 				7256F2FC2C375A2200D982F0 /* Order.swift in Sources */,
 				7256F2FE2C37703A00D982F0 /* HomeView.swift in Sources */,
