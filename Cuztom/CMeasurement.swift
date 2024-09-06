@@ -7,19 +7,25 @@
 
 import Foundation
 
-//https://www.ratioclothing.com/help/measure-a-shirt
+// https://www.ratioclothing.com/help/measure-a-shirt
 
 
-class Measurement: Codable {
+class CMeasurement: Codable, Hashable {
+    
     var dateTaken: Date = .now
     var customer: User
     var forSelf: Bool
     var measurementFor: String
-    var details: String
-    var units: String
     var notes: String
+    
+    init(customer: User, forSelf: Bool, measurementFor: String, notes: String) {
+        self.customer = customer
+        self.forSelf = forSelf
+        self.measurementFor = measurementFor
+        self.notes = notes
+    }
 }
 
-class ShirtMeasurement: Measurement {
+class ShirtMeasurement: CMeasurement {
     static let detailsNeeded:[String] = ["Chest", "Waist", "Seat", "Bicep", "Shirt Length", "Shoulder Length", "Sleeve Length", "Cuff Circuference", "Collar Size"]
 }

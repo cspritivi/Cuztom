@@ -21,6 +21,8 @@ struct User: Identifiable, Codable {
         return ""
     }
     
+    var measurements: [CMeasurement]?
+    
 }
 
 extension User {

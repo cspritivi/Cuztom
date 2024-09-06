@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		723C1ACB2C8AA7F400693766 /* HelperCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1ACA2C8AA7F400693766 /* HelperCode.swift */; };
+		723C1ACD2C8AB69B00693766 /* MeasurementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1ACC2C8AB69B00693766 /* MeasurementDetailsView.swift */; };
 		724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300A2C755AD6006EF167 /* AuthViewModel.swift */; };
 		724E300D2C7BB581006EF167 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300C2C7BB581006EF167 /* SettingsRowView.swift */; };
 		724E300F2C7BB839006EF167 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300E2C7BB839006EF167 /* User.swift */; };
@@ -38,7 +40,7 @@
 		72648F152C4B3443000A301A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72648F142C4B3443000A301A /* InputView.swift */; };
 		72648F172C4B3E8F000A301A /* Voga-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72648F162C4B3E8F000A301A /* Voga-Medium.otf */; };
 		7284B8EF2C801DB5008A4ADD /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7284B8EE2C801DB5008A4ADD /* MeasurementView.swift */; };
-		7284B8F12C802311008A4ADD /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7284B8F02C802311008A4ADD /* Measurement.swift */; };
+		7284B8F12C802311008A4ADD /* CMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7284B8F02C802311008A4ADD /* CMeasurement.swift */; };
 		72ABEA3A2C7D586D00FECEA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72ABEA392C7D586D00FECEA1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		723C1ACA2C8AA7F400693766 /* HelperCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperCode.swift; sourceTree = "<group>"; };
+		723C1ACC2C8AB69B00693766 /* MeasurementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementDetailsView.swift; sourceTree = "<group>"; };
 		724E300A2C755AD6006EF167 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		724E300C2C7BB581006EF167 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		724E300E2C7BB839006EF167 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -89,7 +93,7 @@
 		72648F142C4B3443000A301A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		72648F162C4B3E8F000A301A /* Voga-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Voga-Medium.otf"; sourceTree = "<group>"; };
 		7284B8EE2C801DB5008A4ADD /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
-		7284B8F02C802311008A4ADD /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		7284B8F02C802311008A4ADD /* CMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMeasurement.swift; sourceTree = "<group>"; };
 		72ABEA392C7D586D00FECEA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +195,7 @@
 				724E300E2C7BB839006EF167 /* User.swift */,
 				7256F3072C377DDC00D982F0 /* Launch Screen.storyboard */,
 				72648F0C2C474C4E000A301A /* Fonts */,
+				723C1ACA2C8AA7F400693766 /* HelperCode.swift */,
 			);
 			path = Cuztom;
 			sourceTree = "<group>";
@@ -244,7 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				7284B8EE2C801DB5008A4ADD /* MeasurementView.swift */,
-				7284B8F02C802311008A4ADD /* Measurement.swift */,
+				7284B8F02C802311008A4ADD /* CMeasurement.swift */,
+				723C1ACC2C8AB69B00693766 /* MeasurementDetailsView.swift */,
 			);
 			name = Measurement;
 			sourceTree = "<group>";
@@ -400,16 +406,18 @@
 			files = (
 				724E300F2C7BB839006EF167 /* User.swift in Sources */,
 				7256F3352C3B5A1200D982F0 /* SignInView.swift in Sources */,
-				7284B8F12C802311008A4ADD /* Measurement.swift in Sources */,
+				7284B8F12C802311008A4ADD /* CMeasurement.swift in Sources */,
 				7256F2FA2C3756FD00D982F0 /* Customer.swift in Sources */,
 				7256F30B2C37813900D982F0 /* LoginView1.swift in Sources */,
 				7256F3372C3B5A2D00D982F0 /* CreateAccountView.swift in Sources */,
+				723C1ACB2C8AA7F400693766 /* HelperCode.swift in Sources */,
 				7284B8EF2C801DB5008A4ADD /* MeasurementView.swift in Sources */,
 				7257335F2C27855600FAD9BC /* ContentView.swift in Sources */,
 				7256F2FC2C375A2200D982F0 /* Order.swift in Sources */,
 				7256F2FE2C37703A00D982F0 /* HomeView.swift in Sources */,
 				724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */,
 				724E300D2C7BB581006EF167 /* SettingsRowView.swift in Sources */,
+				723C1ACD2C8AB69B00693766 /* MeasurementDetailsView.swift in Sources */,
 				72648F152C4B3443000A301A /* InputView.swift in Sources */,
 				7256F3022C37718B00D982F0 /* ProfileView.swift in Sources */,
 				7257335D2C27855600FAD9BC /* CuztomApp.swift in Sources */,
