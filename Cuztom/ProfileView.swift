@@ -83,7 +83,7 @@ struct ProfileView: View {
                     if value == "Measurements" {
                         MeasurementView()
                     } else {
-                        MeasurementView()
+                        AddMeasurementView()
                     }
                     
                 }

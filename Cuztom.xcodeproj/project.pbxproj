@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		723C1ACB2C8AA7F400693766 /* HelperCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1ACA2C8AA7F400693766 /* HelperCode.swift */; };
 		723C1ACD2C8AB69B00693766 /* MeasurementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1ACC2C8AB69B00693766 /* MeasurementDetailsView.swift */; };
+		723C1ACF2C8C009600693766 /* AddMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1ACE2C8C009600693766 /* AddMeasurementView.swift */; };
 		724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300A2C755AD6006EF167 /* AuthViewModel.swift */; };
 		724E300D2C7BB581006EF167 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300C2C7BB581006EF167 /* SettingsRowView.swift */; };
 		724E300F2C7BB839006EF167 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300E2C7BB839006EF167 /* User.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		723C1ACA2C8AA7F400693766 /* HelperCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperCode.swift; sourceTree = "<group>"; };
 		723C1ACC2C8AB69B00693766 /* MeasurementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementDetailsView.swift; sourceTree = "<group>"; };
+		723C1ACE2C8C009600693766 /* AddMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeasurementView.swift; sourceTree = "<group>"; };
 		724E300A2C755AD6006EF167 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		724E300C2C7BB581006EF167 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		724E300E2C7BB839006EF167 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				7284B8EE2C801DB5008A4ADD /* MeasurementView.swift */,
 				7284B8F02C802311008A4ADD /* CMeasurement.swift */,
 				723C1ACC2C8AB69B00693766 /* MeasurementDetailsView.swift */,
+				723C1ACE2C8C009600693766 /* AddMeasurementView.swift */,
 			);
 			name = Measurement;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				72648F152C4B3443000A301A /* InputView.swift in Sources */,
 				7256F3022C37718B00D982F0 /* ProfileView.swift in Sources */,
 				7257335D2C27855600FAD9BC /* CuztomApp.swift in Sources */,
+				723C1ACF2C8C009600693766 /* AddMeasurementView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
