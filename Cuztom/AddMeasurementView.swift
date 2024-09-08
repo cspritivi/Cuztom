@@ -17,28 +17,33 @@ struct AddMeasurementView: View {
     @State private var measurementFor = ""
     
     var body: some View {
-        measurementFor = authViewModel.currentUser?.fullName ?? "Not logged in"
-//        guard  let user = authViewModel.currentUser else { return Text("No1 logged in") }
-        return Form {
+        Form {
             Picker("Measurement Type", selection: $selected) {
-                ForEach(selectionOptions, id:\.description) {
+                ForEach(selectionOptions, id: \.self) {
                     Text($0)
                 }
             }
             .pickerStyle(.inline)
             
-            Section("This Measure Is") {
-                Toggle(isOn: $forSelf) {
+            Section("This Measurement Is") {
+                Toggle(isOn: Binding(
+                    get: { forSelf },
+                    set: { newValue in
+                        forSelf = newValue
+                        updateMeasurementFor()
+                    }
+                )) {
                     Text("For Myself")
                     Text("Switch this off only if these measurements are someone else's")
                 }
                 .toggleStyle(.switch)
-                TextField("Measurment For:", text: $measurementFor, prompt: Text("Full Name"))
+                
+                TextField("Measurement For:", text: $measurementFor, prompt: Text("Enter Name"))
                     .disabled(forSelf)
+                    .foregroundColor(forSelf ? .gray : .black)
             }
-            
         }
-        .navigationTitle("Add New Measurment")
+        .navigationTitle("Add New Measurement")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -47,6 +52,17 @@ struct AddMeasurementView: View {
                 }
             }
         }
+        .onAppear {
+            updateMeasurementFor()
+        }
+    }
+    
+    private func updateMeasurementFor() {
+        if forSelf {
+            measurementFor = authViewModel.currentUser?.fullName ?? ""
+        } else {
+            measurementFor = ""
+        }
     }
 }
 
@@ -54,5 +70,10 @@ struct AddMeasurementView: View {
     NavigationStack {
         AddMeasurementView()
             .environmentObject(AuthViewModel())
+            .navigationDestination(for: String.self) { value in
+                if value == "MeasurementDetails" {
+                    MeasurementFormView()
+                }
+            }
     }
 }

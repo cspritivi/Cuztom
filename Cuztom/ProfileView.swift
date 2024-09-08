@@ -79,13 +79,12 @@ struct ProfileView: View {
                     }
                 }
                 .navigationDestination(for: String.self) { value in
-                    
-                    if value == "Measurements" {
-                        MeasurementView()
-                    } else {
-                        AddMeasurementView()
+                    switch value {
+                    case "Measurements": MeasurementView()
+                    case "AddNewMeasurement": AddMeasurementView()
+                    case "MeasurementDetails": MeasurementFormView()
+                    default: Text("Uncaught String Destination")
                     }
-                    
                 }
             }
         }
