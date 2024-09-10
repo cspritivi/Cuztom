@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721F6A2C2C8FD8D90083EBA0 /* FormKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721F6A2B2C8FD8D80083EBA0 /* FormKeyboardToolbar.swift */; };
 		723C1ACB2C8AA7F400693766 /* HelperCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1ACA2C8AA7F400693766 /* HelperCode.swift */; };
 		723C1ACD2C8AB69B00693766 /* MeasurementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1ACC2C8AB69B00693766 /* MeasurementDetailsView.swift */; };
 		723C1ACF2C8C009600693766 /* AddMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1ACE2C8C009600693766 /* AddMeasurementView.swift */; };
 		723C1AD12C8D0FE700693766 /* MeasurementFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1AD02C8D0FE700693766 /* MeasurementFormView.swift */; };
-		723C1AD32C8D3E2700693766 /* ValuePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1AD22C8D3E2700693766 /* ValuePickerView.swift */; };
 		723C1AD52C8D3FD600693766 /* ValuePickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1AD42C8D3FD600693766 /* ValuePickerField.swift */; };
 		724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300A2C755AD6006EF167 /* AuthViewModel.swift */; };
 		724E300D2C7BB581006EF167 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300C2C7BB581006EF167 /* SettingsRowView.swift */; };
@@ -66,11 +66,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		721F6A2B2C8FD8D80083EBA0 /* FormKeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormKeyboardToolbar.swift; sourceTree = "<group>"; };
 		723C1ACA2C8AA7F400693766 /* HelperCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperCode.swift; sourceTree = "<group>"; };
 		723C1ACC2C8AB69B00693766 /* MeasurementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementDetailsView.swift; sourceTree = "<group>"; };
 		723C1ACE2C8C009600693766 /* AddMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeasurementView.swift; sourceTree = "<group>"; };
 		723C1AD02C8D0FE700693766 /* MeasurementFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementFormView.swift; sourceTree = "<group>"; };
-		723C1AD22C8D3E2700693766 /* ValuePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePickerView.swift; sourceTree = "<group>"; };
 		723C1AD42C8D3FD600693766 /* ValuePickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePickerField.swift; sourceTree = "<group>"; };
 		724E300A2C755AD6006EF167 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		724E300C2C7BB581006EF167 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
@@ -250,6 +250,7 @@
 				72648F142C4B3443000A301A /* InputView.swift */,
 				724E300C2C7BB581006EF167 /* SettingsRowView.swift */,
 				723C1AD42C8D3FD600693766 /* ValuePickerField.swift */,
+				721F6A2B2C8FD8D80083EBA0 /* FormKeyboardToolbar.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -262,7 +263,6 @@
 				723C1ACC2C8AB69B00693766 /* MeasurementDetailsView.swift */,
 				723C1ACE2C8C009600693766 /* AddMeasurementView.swift */,
 				723C1AD02C8D0FE700693766 /* MeasurementFormView.swift */,
-				723C1AD22C8D3E2700693766 /* ValuePickerView.swift */,
 			);
 			name = Measurement;
 			sourceTree = "<group>";
@@ -419,6 +419,7 @@
 				723C1AD12C8D0FE700693766 /* MeasurementFormView.swift in Sources */,
 				724E300F2C7BB839006EF167 /* User.swift in Sources */,
 				7256F3352C3B5A1200D982F0 /* SignInView.swift in Sources */,
+				721F6A2C2C8FD8D90083EBA0 /* FormKeyboardToolbar.swift in Sources */,
 				7284B8F12C802311008A4ADD /* CMeasurement.swift in Sources */,
 				7256F2FA2C3756FD00D982F0 /* Customer.swift in Sources */,
 				7256F30B2C37813900D982F0 /* LoginView1.swift in Sources */,
@@ -426,7 +427,6 @@
 				723C1ACB2C8AA7F400693766 /* HelperCode.swift in Sources */,
 				7284B8EF2C801DB5008A4ADD /* MeasurementView.swift in Sources */,
 				7257335F2C27855600FAD9BC /* ContentView.swift in Sources */,
-				723C1AD32C8D3E2700693766 /* ValuePickerView.swift in Sources */,
 				7256F2FC2C375A2200D982F0 /* Order.swift in Sources */,
 				7256F2FE2C37703A00D982F0 /* HomeView.swift in Sources */,
 				724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */,

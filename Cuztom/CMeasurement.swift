@@ -18,7 +18,7 @@ class CMeasurement: Codable, Hashable {
     var measurementFor: String
     var notes: String
     
-    init(customer: User, forSelf: Bool, measurementFor: String, notes: String) {
+    init(customer: User, forSelf: Bool, measurementFor: String, notes: String, detailsNeeded:[String]) {
         self.customer = customer
         self.forSelf = forSelf
         self.measurementFor = measurementFor

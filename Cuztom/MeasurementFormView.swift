@@ -9,18 +9,25 @@ import SwiftUI
 
 struct MeasurementFormView: View {
     
-    let formFields = ["Chest", "Height"]
-    @State var values: [Float] = [0, 0]
-    @State var heightFeet = 0
-    @State var heightInches = 0
-    @State var heightFeet2 = 0
-    @State var heightInches2 = 0
+    let detailsNeeded:[String]
+    @State var values:[String]
+    
+    init() {
+        self.detailsNeeded = ShirtMeasurement.detailsNeeded
+        self.values = Array(repeating: "", count: detailsNeeded.count)
+    }
     
     var body: some View {
         Form {
-            Section("Height") {
-                HeightPickerField(feet: $heightFeet, inches: $heightInches, placeholder: "Tap to enter height")
-                HeightPickerField(feet: $heightFeet2, inches: $heightInches2, placeholder: "Tap to enter height 2")
+            VStack {
+                ForEach(0..<detailsNeeded.count, id:\.self) { index in
+                    InputView(text: self.$values[index], title: self.detailsNeeded[index], placeholder: "Enter Details")
+                        .keyboardType(.decimalPad)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            print("formSubmited")
+                        }
+                }
             }
         }
     }
