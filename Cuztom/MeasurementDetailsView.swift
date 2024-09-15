@@ -16,7 +16,7 @@ struct MeasurementDetailsView: View {
     }
     
     var body: some View {
-        Text(self.measurement.notes)
+        Text(self.measurement.measurementFor)
     }
 }
 

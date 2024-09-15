@@ -10,18 +10,24 @@ import SwiftUI
 struct MeasurementView: View {
     
     @EnvironmentObject private var authViewModel: AuthViewModel
+    @Binding var path: NavigationPath
     
     var body: some View {
             Group {
+                
                 if let user = authViewModel.currentUser {
                     if let measurements = user.measurements, !measurements.isEmpty {
-                        measurementsList(measurements: measurements)
+                        List {
+                            ForEach(measurements, id: \.id) { measurement in
+                                NavigationLink(value: measurement) {
+                                    Text("Hello World")
+                                }
+                            }
+                        }
                     } else {
                         Text("No Measurements Found")
                     }
-                } else {
-                    Text("Please log in to view measurements")
-                }
+                } else { Text("Please log in to view measurements") }
             }
             .navigationTitle("Measurements")
             .navigationBarTitleDisplayMode(.inline)
@@ -35,22 +41,10 @@ struct MeasurementView: View {
         }
     
     private func measurementsList(measurements: [CMeasurement]) -> some View {
-        
-//        let user = authViewModel.currentUser!
-//
-//        let measurements = [
-//                    CMeasurement(customer: user, forSelf: true, measurementFor: user.fullName, notes: "Hello World 1"),
-//                    CMeasurement(customer: user, forSelf: true, measurementFor: user.fullName, notes: "Hello World 2"),
-//                    CMeasurement(customer: user, forSelf: true, measurementFor: user.fullName, notes: "Hello World 3"),
-//                    CMeasurement(customer: user, forSelf: true, measurementFor: user.fullName, notes: "Hello World 4"),
-//                    CMeasurement(customer: user, forSelf: true, measurementFor: user.fullName, notes: "Hello World 5"),
-//                    CMeasurement(customer: user, forSelf: true, measurementFor: user.fullName, notes: "Hello World 6"),
-//                    CMeasurement(customer: user, forSelf: true, measurementFor: user.fullName, notes: "Hello World 7")
-//        ]
         List {
-            ForEach(measurements, id:\.notes) { measurement in
+            ForEach(measurements, id:\.measurementFor) { measurement in
                 NavigationLink(value: measurement) {
-                    Text(measurement.notes)
+                    Text("Hello")
                 }
             }
         }
@@ -62,10 +56,10 @@ struct MeasurementView: View {
 
 #Preview {
     NavigationStack {
-        MeasurementView()
+        MeasurementView(path: .constant(NavigationPath(["A", "B"])))
             .environmentObject(AuthViewModel())
             .navigationDestination(for: String.self) { value in
-                AddMeasurementView()
+                AddMeasurementView(path: .constant(NavigationPath(["A", "B"])))
             }
     }
 }

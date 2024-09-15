@@ -9,13 +9,21 @@ import SwiftUI
 
 struct MeasurementFormView: View {
     
+    @EnvironmentObject private var authViewModel: AuthViewModel
     let detailsNeeded:[String]
     @State var values:[String]
     @FocusState private var focusedField: Int?
+    @Binding var path: NavigationPath
     
-    init() {
+    let measurementFor: String
+    let measurementType: String
+    
+    init( measurementFor: String, measurementType: String, path: Binding<NavigationPath>) {
+        self.measurementFor = measurementFor
+        self.measurementType = measurementType
         self.detailsNeeded = ShirtMeasurement.detailsNeeded
-        self.values = Array(repeating: "", count: detailsNeeded.count)
+        self._values = State(initialValue: Array(repeating: "", count: detailsNeeded.count))
+        self._path = path
     }
     
     var body: some View {
@@ -30,8 +38,11 @@ struct MeasurementFormView: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
                 HStack {
+                    Button(action: resetAllFields) {
+                        Text("Reset")
+                    }
+                    Spacer()
                     Button(action: moveToPreviousField) {
                         Image(systemName: "chevron.up")
                     }
@@ -42,22 +53,21 @@ struct MeasurementFormView: View {
                     }
                     .disabled(!canMoveToNextField)
                     
-                    Button {
-                        focusedField = nil
-                    } label: {
-                        Image(systemName: "checkmark")
+                    Button { focusedField = nil } label: {
+                        Text("Done")
                     }
-
                 }
             }
         }
         .navigationTitle("New Shirt Measurement")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(content: {
-            Button("Done") {
-                
+            Button("Submit") {
+                let newMeasurement = CMeasurement(measurementFor: measurementFor, values: values, customerID: authViewModel.currentUser?.id ?? "")
+                FirebaseManager.shared.addMeasurement(newMeasurement)
+                path.removeLast(path.count)
             }
-            .disabled(!(self.values.filter {$0 == ""}.count == 0))
+            .disabled(!formIsValid)
         })
     }
     
@@ -80,10 +90,23 @@ struct MeasurementFormView: View {
         guard let currentFocus = focusedField else { return false }
         return currentFocus < self.detailsNeeded.count - 1
     }
+    
+    private func resetAllFields() {
+        for i in self.values.indices {
+            self.values[i] = ""
+        }
+    }
+}
+
+extension MeasurementFormView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return self.values.allSatisfy { $0 != "" }
+    }
 }
 
 #Preview {
     NavigationStack {
-        MeasurementFormView()
+        MeasurementFormView(measurementFor: "C", measurementType: "D", path: .constant(NavigationPath(["A", "B"])))
+            .environmentObject(AuthViewModel())
     }
 }

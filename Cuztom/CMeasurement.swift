@@ -12,17 +12,18 @@ import Foundation
 
 class CMeasurement: Codable, Hashable {
     
-    var dateTaken: Date = .now
-    var customer: User
-    var forSelf: Bool
-    var measurementFor: String
-    var notes: String
+    let id: String
+    let createdAt: Date
+    let measurementFor: String
+    let values: [String]
+    let customerID: String
     
-    init(customer: User, forSelf: Bool, measurementFor: String, notes: String, detailsNeeded:[String]) {
-        self.customer = customer
-        self.forSelf = forSelf
+    init(id: String = UUID().uuidString, measurementFor: String, values: [String], customerID: String) {
+        self.id = id
+        self.createdAt = Date()
         self.measurementFor = measurementFor
-        self.notes = notes
+        self.values = values
+        self.customerID = customerID
     }
 }
 

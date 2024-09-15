@@ -13,10 +13,11 @@ struct ProfileView: View {
     @EnvironmentObject private var authViewModel: AuthViewModel
     
     var settings: [SettingsRowView] = []
+    @State var path: NavigationPath = NavigationPath()
     
     var body: some View {
         if let user = authViewModel.currentUser {
-            NavigationStack {
+            NavigationStack(path: $path) {
                 List {
                     Section {
                         HStack {
@@ -80,9 +81,9 @@ struct ProfileView: View {
                 }
                 .navigationDestination(for: String.self) { value in
                     switch value {
-                    case "Measurements": MeasurementView()
-                    case "AddNewMeasurement": AddMeasurementView()
-                    case "MeasurementDetails": MeasurementFormView()
+                    case "Measurements": MeasurementView(path: $path)
+                    case "AddNewMeasurement": AddMeasurementView(path: $path)
+                    case "MeasurementDetails": MeasurementFormView(measurementFor: "C", measurementType: "D", path: $path)
                     default: Text("Uncaught String Destination")
                     }
                 }

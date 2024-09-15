@@ -7,10 +7,17 @@
 
 import Foundation
 
-struct User: Identifiable, Codable {
+class User: Identifiable, Codable {
     let id: String
     let fullName: String
     let email: String
+    var measurements: [CMeasurement]?
+    
+    init(id: String, fullName: String, email: String) {
+        self.id = id
+        self.fullName = fullName
+        self.email = email
+    }
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
@@ -20,8 +27,6 @@ struct User: Identifiable, Codable {
         }
         return ""
     }
-    
-    var measurements: [CMeasurement]?
     
 }
 

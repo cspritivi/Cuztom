@@ -98,6 +98,8 @@ extension SignInView: AuthenticationFormProtocol {
 }
 
 #Preview {
-    SignInView()
-        .environmentObject(AuthViewModel())
+    NavigationStack {
+        SignInView()
+            .environmentObject(AuthViewModel())
+    }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct AddMeasurementView: View {
     
     @EnvironmentObject var authViewModel: AuthViewModel
+    @Binding var path: NavigationPath
     
     private let selectionOptions = ["Shirt", "Pant"]
     @State private var selected = ""
@@ -47,9 +48,17 @@ struct AddMeasurementView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink(value: "MeasurementDetails") {
+//                NavigationLink(value: "MeasurementDetails") {
+//                    Text("Next")
+//                }
+//                .disabled(!formIsValid)
+                NavigationLink {
+                    MeasurementFormView(measurementFor: measurementFor, measurementType: selected, path: $path)
+                } label: {
                     Text("Next")
                 }
+                .disabled(!formIsValid)
+
             }
         }
         .onAppear {
@@ -66,13 +75,19 @@ struct AddMeasurementView: View {
     }
 }
 
+extension AddMeasurementView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return measurementFor != "" && selected != ""
+    }
+}
+
 #Preview {
     NavigationStack {
-        AddMeasurementView()
+        AddMeasurementView(path: .constant(NavigationPath(["A", "B"])))
             .environmentObject(AuthViewModel())
             .navigationDestination(for: String.self) { value in
                 if value == "MeasurementDetails" {
-                    MeasurementFormView()
+                    MeasurementFormView(measurementFor: "c", measurementType: "d", path: .constant(NavigationPath(["A", "B"])))
                 }
             }
     }
