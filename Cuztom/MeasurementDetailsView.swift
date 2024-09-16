@@ -9,19 +9,17 @@ import SwiftUI
 
 struct MeasurementDetailsView: View {
     
-    @State var measurement: CMeasurement?
+    @State var measurement: CMeasurement
     
-    init(measurement: CMeasurement?) {
+    init(measurement: CMeasurement) {
         self.measurement = measurement
     }
     
     var body: some View {
         
         Group {
-            if let measurement = self.measurement {
-                
+//            if let measurement = self.measurement {
                 List {
-
                         Section("Measurement For") {
                             InfoRowView(title: measurement.measurementFor, tint: Color.black)
                         }
@@ -41,22 +39,24 @@ struct MeasurementDetailsView: View {
                         }
                 }
                 
-            } else {
-                ProgressView()
-            }
+//            } else {
+//                ProgressView()
+//            }
         }
-        .task {
-            if self.measurement == nil {
-                do {
-                    self.measurement = try await MeasurementViewModel.shared.getMeasurement(id: "ABF09ED5-E441-4461-9E67-9F108A72AD9D")
-                } catch {
-                    // Error Handling
-                }
-            }
-        }
+//        .task {
+//            if self.measurement == nil {
+//                do {
+//                    print("Entering")
+//                    self.measurement = try await MeasurementViewModel.shared.getMeasurement(id: "ABF09ED5-E441-4461-9E67-9F108A72AD9D")
+//                } catch {
+//                    // Error Handling
+//                }
+//            }
+//        }
     }
 }
 
 #Preview {
-    MeasurementDetailsView(measurement: nil)
+//    MeasurementDetailsView(measurement: nil)
+    Text("NNN")
 }

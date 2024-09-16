@@ -33,7 +33,7 @@ class User: Identifiable, Codable {
         let newMeasurement = CMeasurement(measurementFor: measurementFor, values: values, customerID: self.id, type: type)
         try await MeasurementViewModel.shared.addMeasurement(newMeasurement)
         
-        if self.measurements != nil {
+        if self.measurements == nil {
             self.measurements = [newMeasurement]
         } else {
             self.measurements?.append(newMeasurement)
