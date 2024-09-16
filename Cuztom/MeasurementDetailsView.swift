@@ -15,28 +15,38 @@ struct MeasurementDetailsView: View {
         self.measurement = measurement
     }
     
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter
+    }()
+    
     var body: some View {
         
         Group {
 //            if let measurement = self.measurement {
                 List {
-                        Section("Measurement For") {
-                            InfoRowView(title: measurement.measurementFor, tint: Color.black)
-                        }
-                        
-                        Section("Measurement Type") {
-                            InfoRowView(title: measurement.type, tint: Color.black)
-                        }
-                        
-                        Section("Measurements") {
-                            ForEach(0..<measurement.values.count, id:\.self) { index in
-                                HStack {
-                                    InfoRowView(title: CMeasurement.typeToDetails[measurement.type]![index], tint: Color.black)
-                                    Spacer()
-                                    Text("\(measurement.values[index])")
-                                }
+                    Section ("Date Taken") {
+                        InfoRowView(title: dateFormatter.string(from: measurement.createdAt), tint: Color.black)
+                    }
+                    Section("Measurement For") {
+                        InfoRowView(title: measurement.measurementFor, tint: Color.black)
+                    }
+                    
+                    Section("Measurement Type") {
+                        InfoRowView(title: measurement.type, tint: Color.black)
+                    }
+                    
+                    Section("Measurements") {
+                        ForEach(0..<measurement.values.count, id:\.self) { index in
+                            HStack {
+                                InfoRowView(title: CMeasurement.typeToDetails[measurement.type]![index], tint: Color.black)
+                                Spacer()
+                                Text("\(measurement.values[index])")
                             }
                         }
+                    }
                 }
                 
 //            } else {
