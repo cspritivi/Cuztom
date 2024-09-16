@@ -66,6 +66,8 @@ class AuthViewModel: ObservableObject {
     
     func deleteAccount() {
         
+        //TODO
+        
     }
     
     func fetchUser() async {
