@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct InfoRowView: View {
+    let title: String
+    let tint: Color
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 12) {
+            Text(title)
+                .font(.subheadline)
+                .foregroundStyle(Color(.black))
+        }
     }
 }
 
 #Preview {
-    InfoRowView()
+    InfoRowView(title: "Version", tint: Color(.systemGray))
 }
+

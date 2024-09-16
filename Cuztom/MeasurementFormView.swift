@@ -10,18 +10,18 @@ import SwiftUI
 struct MeasurementFormView: View {
     
     @EnvironmentObject private var authViewModel: AuthViewModel
-    let detailsNeeded:[String]
     @State var values:[String]
     @FocusState private var focusedField: Int?
     @Binding var path: NavigationPath
     
     let measurementFor: String
     let measurementType: String
+    let detailsNeeded: [String]
     
     init( measurementFor: String, measurementType: String, path: Binding<NavigationPath>) {
         self.measurementFor = measurementFor
         self.measurementType = measurementType
-        self.detailsNeeded = ShirtMeasurement.detailsNeeded
+        self.detailsNeeded = CMeasurement.typeToDetails[measurementType] ?? ["Notes"]
         self._values = State(initialValue: Array(repeating: "", count: detailsNeeded.count))
         self._path = path
     }
@@ -63,9 +63,10 @@ struct MeasurementFormView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(content: {
             Button("Submit") {
-                let newMeasurement = CMeasurement(measurementFor: measurementFor, values: values, customerID: authViewModel.currentUser?.id ?? "")
-                FirebaseManager.shared.addMeasurement(newMeasurement)
-                path.removeLast(path.count)
+                Task {
+                    try await authViewModel.currentUser?.addMeasurement(measurementFor: measurementFor, values: values, type: measurementType)
+                    path.removeLast(path.count)
+                }
             }
             .disabled(!formIsValid)
         })
@@ -106,7 +107,7 @@ extension MeasurementFormView: AuthenticationFormProtocol {
 
 #Preview {
     NavigationStack {
-        MeasurementFormView(measurementFor: "C", measurementType: "D", path: .constant(NavigationPath(["A", "B"])))
+        MeasurementFormView(measurementFor: "Person", measurementType: "Shirt", path: .constant(NavigationPath(["A", "B"])))
             .environmentObject(AuthViewModel())
     }
 }

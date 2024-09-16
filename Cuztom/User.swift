@@ -28,6 +28,27 @@ class User: Identifiable, Codable {
         return ""
     }
     
+    func addMeasurement(measurementFor: String, values: [String], type: String) async throws {
+        
+        let newMeasurement = CMeasurement(measurementFor: measurementFor, values: values, customerID: self.id, type: type)
+        try await MeasurementViewModel.shared.addMeasurement(newMeasurement)
+        
+        if self.measurements != nil {
+            self.measurements = [newMeasurement]
+        } else {
+            self.measurements?.append(newMeasurement)
+        }
+    }
+    
+    
+    func getMeasurements() async throws -> [CMeasurement]? {
+        if self.measurements == nil {
+           try await MeasurementViewModel.shared.fetchMeasurements(for: self.id) { measurements in
+                self.measurements = measurements
+            }
+        }
+        return self.measurements
+    }
 }
 
 extension User {

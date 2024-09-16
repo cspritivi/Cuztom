@@ -12,7 +12,7 @@ struct AddMeasurementView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @Binding var path: NavigationPath
     
-    private let selectionOptions = ["Shirt", "Pant"]
+    private let selectionOptions = Array(CMeasurement.typeToDetails.keys)
     @State private var selected = ""
     @State private var forSelf = true
     @State private var measurementFor = ""
@@ -87,7 +87,7 @@ extension AddMeasurementView: AuthenticationFormProtocol {
             .environmentObject(AuthViewModel())
             .navigationDestination(for: String.self) { value in
                 if value == "MeasurementDetails" {
-                    MeasurementFormView(measurementFor: "c", measurementType: "d", path: .constant(NavigationPath(["A", "B"])))
+                    MeasurementFormView(measurementFor: "Person", measurementType: "Shirt", path: .constant(NavigationPath(["A", "B"])))
                 }
             }
     }

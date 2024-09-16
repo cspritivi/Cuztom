@@ -11,23 +11,24 @@ struct MeasurementView: View {
     
     @EnvironmentObject private var authViewModel: AuthViewModel
     @Binding var path: NavigationPath
+    @State var isLoading: Bool = true
+    @State private var measurements: [CMeasurement] = []
     
     var body: some View {
             Group {
-                
-                if let user = authViewModel.currentUser {
-                    if let measurements = user.measurements, !measurements.isEmpty {
+                    if isLoading {
+                        ProgressView()
+                    } else if measurements.isEmpty {
+                        Text("No Measurements Found")
+                    } else {
                         List {
-                            ForEach(measurements, id: \.id) { measurement in
+                            ForEach(measurements, id: \.id)  { measurement in
                                 NavigationLink(value: measurement) {
-                                    Text("Hello World")
+                                    Text(measurement.type)
                                 }
                             }
                         }
-                    } else {
-                        Text("No Measurements Found")
                     }
-                } else { Text("Please log in to view measurements") }
             }
             .navigationTitle("Measurements")
             .navigationBarTitleDisplayMode(.inline)
@@ -38,19 +39,25 @@ struct MeasurementView: View {
                     }
                 }
             }
-        }
-    
-    private func measurementsList(measurements: [CMeasurement]) -> some View {
-        List {
-            ForEach(measurements, id:\.measurementFor) { measurement in
-                NavigationLink(value: measurement) {
-                    Text("Hello")
+            .task {
+                do {
+                    try await fetchMeasurements()
+                } catch {
+                    //Error Handling for when fetchMeasurements crashes
                 }
             }
+            .navigationDestination(for: CMeasurement.self) { measurement in
+                MeasurementDetailsView(measurement: measurement)
+            }
         }
-        .navigationDestination(for: CMeasurement.self) { measurement in
-            MeasurementDetailsView(measurement: measurement)
+    
+    private func fetchMeasurements() async throws {
+        guard let user = authViewModel.currentUser else { isLoading = false; return }
+        
+        if let fetchedMeasurements = try await user.getMeasurements() {
+            measurements = fetchedMeasurements
         }
+        isLoading = false
     }
 }
 

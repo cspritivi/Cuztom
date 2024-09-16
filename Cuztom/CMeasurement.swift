@@ -17,16 +17,19 @@ class CMeasurement: Codable, Hashable {
     let measurementFor: String
     let values: [String]
     let customerID: String
+    let type: String
     
-    init(id: String = UUID().uuidString, measurementFor: String, values: [String], customerID: String) {
+    init(id: String = UUID().uuidString, measurementFor: String, values: [String], customerID: String, type: String) {
         self.id = id
         self.createdAt = Date()
         self.measurementFor = measurementFor
         self.values = values
         self.customerID = customerID
+        self.type = type
     }
-}
-
-class ShirtMeasurement: CMeasurement {
-    static let detailsNeeded:[String] = ["Chest", "Waist", "Seat", "Bicep", "Shirt Length", "Shoulder Length", "Sleeve Length", "Cuff Circuference", "Collar Size"]
+    
+    static let typeToDetails: [String: [String]] = [
+        "Shirt" : ["Chest", "Waist", "Seat", "Bicep", "Shirt Length", "Shoulder Length", "Sleeve Length", "Cuff Circuference", "Collar Size"],
+        "Pant" : ["Waist", "Hip", "Abdomen", "Thigh", "Knee", "Calf", "Instep", "Side Length to Knee", "Side Length", "Crotch"]
+    ]
 }
