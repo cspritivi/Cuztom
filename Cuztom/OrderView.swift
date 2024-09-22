@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct OrderView: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            Group {
+                Text("Hellow World")
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink("Fabrics", value: "DefaultFabrics")
+                }
+            }
+            .navigationDestination(for: String.self) { value in
+                switch value {
+                case "DefaultFabrics": FabricsView(filter: "all")
+                default: FabricsView(filter: "all")
+                }
+            }
+        }
     }
 }
 

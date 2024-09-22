@@ -20,7 +20,7 @@ struct HomeView: View {
                 Text("Started the project today")
             }
             .navigationTitle("Home")
-            .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarTitleDisplayMode(.inline)
             .padding()
         }
     }

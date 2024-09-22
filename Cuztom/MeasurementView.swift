@@ -44,6 +44,7 @@ struct MeasurementView: View {
                     try await fetchMeasurements()
                 } catch {
                     //Error Handling for when fetchMeasurements crashes
+                    print(error.localizedDescription)
                 }
             }
             .navigationDestination(for: CMeasurement.self) { measurement in
