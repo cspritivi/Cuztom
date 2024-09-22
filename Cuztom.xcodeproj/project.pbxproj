@@ -12,6 +12,8 @@
 		723C1ACF2C8C009600693766 /* AddMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1ACE2C8C009600693766 /* AddMeasurementView.swift */; };
 		723C1AD12C8D0FE700693766 /* MeasurementFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1AD02C8D0FE700693766 /* MeasurementFormView.swift */; };
 		723C1AD52C8D3FD600693766 /* ValuePickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C1AD42C8D3FD600693766 /* ValuePickerField.swift */; };
+		724119822C9FA84900B0EF4A /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724119812C9FA84900B0EF4A /* OrderView.swift */; };
+		724119842C9FAA0200B0EF4A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724119832C9FAA0200B0EF4A /* FavoritesView.swift */; };
 		724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300A2C755AD6006EF167 /* AuthViewModel.swift */; };
 		724E300D2C7BB581006EF167 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300C2C7BB581006EF167 /* SettingsRowView.swift */; };
 		724E300F2C7BB839006EF167 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300E2C7BB839006EF167 /* User.swift */; };
@@ -72,6 +74,8 @@
 		723C1ACE2C8C009600693766 /* AddMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeasurementView.swift; sourceTree = "<group>"; };
 		723C1AD02C8D0FE700693766 /* MeasurementFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementFormView.swift; sourceTree = "<group>"; };
 		723C1AD42C8D3FD600693766 /* ValuePickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePickerField.swift; sourceTree = "<group>"; };
+		724119812C9FA84900B0EF4A /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		724119832C9FAA0200B0EF4A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		724E300A2C755AD6006EF167 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		724E300C2C7BB581006EF167 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		724E300E2C7BB839006EF167 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				7257335E2C27855600FAD9BC /* ContentView.swift */,
 				7256F2FD2C37703A00D982F0 /* HomeView.swift */,
 				7256F3012C37718A00D982F0 /* ProfileView.swift */,
+				724119812C9FA84900B0EF4A /* OrderView.swift */,
+				724119832C9FAA0200B0EF4A /* FavoritesView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				7284B8EF2C801DB5008A4ADD /* MeasurementView.swift in Sources */,
 				7257335F2C27855600FAD9BC /* ContentView.swift in Sources */,
 				72E459C82C97BCEA001DAABF /* MeasurementViewModel.swift in Sources */,
+				724119822C9FA84900B0EF4A /* OrderView.swift in Sources */,
 				7256F2FC2C375A2200D982F0 /* Order.swift in Sources */,
 				7256F2FE2C37703A00D982F0 /* HomeView.swift in Sources */,
 				724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */,
@@ -438,6 +445,7 @@
 				72648F152C4B3443000A301A /* InputView.swift in Sources */,
 				7256F3022C37718B00D982F0 /* ProfileView.swift in Sources */,
 				7257335D2C27855600FAD9BC /* CuztomApp.swift in Sources */,
+				724119842C9FAA0200B0EF4A /* FavoritesView.swift in Sources */,
 				723C1AD52C8D3FD600693766 /* ValuePickerField.swift in Sources */,
 				723C1ACF2C8C009600693766 /* AddMeasurementView.swift in Sources */,
 				72E459CA2C98B6B1001DAABF /* InfoRowView.swift in Sources */,
