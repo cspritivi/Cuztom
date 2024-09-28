@@ -14,34 +14,35 @@ struct FabricDetailView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 15) {
-                                ForEach(fabric.images, id: \.self) { imageName in
-                                    Image(uiImage: imageName) // Use AsyncImage for remote URLs
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 200, height: 200)
-                                        .clipped()
-                                        .cornerRadius(10)
+                                ForEach(fabric.imageURLs, id: \.self) { imageName in
+//                                    Image(uiImage: imageName) // Use AsyncImage for remote URLs
+//                                        .resizable()
+//                                        .scaledToFill()
+//                                        .frame(width: 200, height: 200)
+//                                        .clipped()
+//                                        .cornerRadius(10)
+                                    Text(imageName)
                                 }
                             }
                             .padding(.horizontal)
                         }
                         
                         VStack(alignment: .leading, spacing: 10) {
-                            Text(fabric.uid)
+                            Text(fabric.id)
                                 .font(.title)
                                 .fontWeight(.bold)
                             
-                            Text(fabric.type)
+                            Text(fabric.fabricType)
                                 .font(.body)
                         }
                         .padding(.horizontal)
                     }
                 }
-                .navigationTitle(fabric.uid)
+                .navigationTitle(fabric.id)
                 .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    FabricDetailView(fabric: Fabric(type:"Type 1", images: []))
+    FabricDetailView(fabric: Fabric(id: UUID().uuidString, fabricType: "Cotton", description: "020", imageURLs: []))
 }

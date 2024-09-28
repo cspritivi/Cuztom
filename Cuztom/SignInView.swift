@@ -42,9 +42,10 @@ struct SignInView: View {
                               isSecureField: true)
                     
                     Button  {
-                        Task {
-                            try await authViewModel.signIn(withEmail: email, password: password)
-                        }
+//                        Task {
+//                            try await authViewModel.signIn(withEmail: email, password: password)
+//                        }
+                        authViewModel.signIn(email: email, password: password)
                     } label: {
                         HStack {
                             Text("SIGN IN")
@@ -61,6 +62,12 @@ struct SignInView: View {
                     .buttonStyle(.bordered)
                     .disabled(!formIsValid)
                     .opacity(formIsValid ? 1.0 : 0.5)
+                    
+                    
+                    if let errorMessage = authViewModel.errorMessage {
+                        Text(errorMessage)
+                            .foregroundStyle(Color(.red))
+                    }
                     
 //                    Text("\(authViewModel.isAuthenticated)")
                     

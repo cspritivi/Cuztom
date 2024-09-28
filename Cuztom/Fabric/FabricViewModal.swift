@@ -36,7 +36,8 @@ class FabricViewModal {
                 }
                 
                 let type = extractType(from: metaDataContent)
-                let fabric = Fabric(uid: id, type: type, images: images)
+//                let fabric = Fabric(uid: id, type: type, images: images)
+                let fabric = Fabric(id: UUID().uuidString, fabricType: "Cotton", description: "020", imageURLs: [])
                 
                 fabrics.append(fabric)
                 

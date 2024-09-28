@@ -49,12 +49,18 @@ struct ProfileView: View {
                     }
                     
                     Section("General") {
-                        HStack {
-                            SettingsRowView(imageName: "gear", title: "Version", tint: Color(.systemGray))
-                            Spacer()
-                            Text("1.0.0")
-                                .font(.subheadline)
-                                .foregroundStyle(Color(.gray))
+                        VStack {
+                            HStack {
+                                SettingsRowView(imageName: "gear", title: "Version", tint: Color(.systemGray))
+                                Spacer()
+                                Text("1.0.0")
+                                    .font(.subheadline)
+                                    .foregroundStyle(Color(.gray))
+                            }
+                            NavigationLink(destination: FabricUploadView()) {
+                                SettingsRowView(imageName: "arrow.up.doc.on.clipboard", title: "Upload Fabrics", tint: Color.black)
+                            }
+                            
                         }
                         
                         

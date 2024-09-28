@@ -21,7 +21,7 @@ class AuthViewModel: ObservableObject {
     @Published var currentUser: User?
     
     @Published var isAuthenticated = false
-//    @Published var customer: Customer? = nil
+    @Published var errorMessage: String?
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -31,13 +31,43 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func signIn(withEmail email: String, password: String) async throws {
-        do {
-            let result = try await Auth.auth().signIn(withEmail: email, password: password)
-            self.userSession = result.user
-            await fetchUser()
-        } catch {
-            print("DEBUG: Failed to sign in user with error: \(error.localizedDescription)")
+//    func signIn(withEmail email: String, password: String) async throws {
+//        do {
+//            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+//            self.userSession = result.user
+//            await fetchUser()
+//        } catch {
+//            print("DEBUG: Failed to sign in user with error: \(error.localizedDescription)")
+//        }
+//    }
+    
+    func signIn(withEmail email: String, password: String) async throws -> AuthDataResult {
+        return try await withUnsafeThrowingContinuation { continuation in
+            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else if let authResult = authResult {
+                    continuation.resume(returning: authResult)
+                } else {
+                    continuation.resume(throwing: NSError(domain: "Auth", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unknown authentication error"]))
+                }
+            }
+        }
+    }
+    
+    func signIn(email: String, password: String) {
+        Task {
+            do {
+                let authResult = try await signIn(withEmail: email, password: password)
+                DispatchQueue.main.async {
+                    self.userSession = authResult.user
+                    self.errorMessage = nil
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.errorMessage = error.localizedDescription
+                }
+            }
         }
     }
     
