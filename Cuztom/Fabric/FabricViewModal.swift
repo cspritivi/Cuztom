@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
-class FabricViewModel {
+class FabricViewModel: ObservableObject {
     @Published var fabrics: [Fabric] = []
     private let db = Firestore.firestore()
     private let storage = Storage.storage()

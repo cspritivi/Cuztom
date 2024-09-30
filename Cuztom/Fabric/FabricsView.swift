@@ -13,6 +13,7 @@ struct FabricsView: View {
     let filter: String
     @State var isLoading: Bool = true
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    let fabricViewModel = FabricViewModel()
     
     init(filter: String) {
         self.filter = filter
@@ -28,7 +29,7 @@ struct FabricsView: View {
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(self.fabrics ?? [], id: \.self) { fabric in
                                     NavigationLink(destination: FabricDetailView(fabric: fabric)) {
-                                        FabricThumbnailView(fabric: fabric)
+                                        FabricThumbnailView(fabric: fabric, fabricViewModel: fabricViewModel)
                                 }
                             }
                         }
@@ -50,9 +51,8 @@ struct FabricsView: View {
     }
     
     private func fetchFabrics(filter: String) async throws {
-        if let fabrics = try await FabricViewModal.fetchAllFabrics() {
-            self.fabrics = fabrics
-        }
+        fabricViewModel.fetchFabrics()
+        self.fabrics = fabricViewModel.fabrics
     }
 }
 
