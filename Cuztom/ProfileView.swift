@@ -57,9 +57,9 @@ struct ProfileView: View {
                                     .font(.subheadline)
                                     .foregroundStyle(Color(.gray))
                             }
-                            NavigationLink(destination: FabricUploadView()) {
-                                SettingsRowView(imageName: "arrow.up.doc.on.clipboard", title: "Upload Fabrics", tint: Color.black)
-                            }
+//                            NavigationLink(destination: FabricUploadView()) {
+//                                SettingsRowView(imageName: "arrow.up.doc.on.clipboard", title: "Upload Fabrics", tint: Color.black)
+//                            }
                             
                         }
                         

@@ -28,7 +28,7 @@ struct FabricsView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(self.fabrics ?? [], id: \.self) { fabric in
-                                    NavigationLink(destination: FabricDetailView(fabric: fabric)) {
+                                NavigationLink(destination: FabricDetailView(fabric: fabric, fabricViewModel: fabricViewModel)) {
                                         FabricThumbnailView(fabric: fabric, fabricViewModel: fabricViewModel)
                                 }
                             }
@@ -37,6 +37,11 @@ struct FabricsView: View {
                     }
                 }
             }
+        }
+        .onAppear() {
+//            fabricViewModel.fetchFabrics()
+//            self.fabrics = fabricViewModel.fabrics
+//            isLoading = false
         }
         .task {
             do {
@@ -51,8 +56,8 @@ struct FabricsView: View {
     }
     
     private func fetchFabrics(filter: String) async throws {
-        fabricViewModel.fetchFabrics()
-        self.fabrics = fabricViewModel.fabrics
+        self.fabrics = try await fabricViewModel.fetchFabrics()
+//        self.fabrics = fabricViewModel.fabrics
     }
 }
 

@@ -13,7 +13,7 @@ class Fabric: Hashable, Identifiable, Codable {
     let fabricType: String
     let description: String
     let imageURLs: [String]
-    init(id: String, fabricType: String, description: String, imageURLs: [String]) {
+    init(id: String, fabricType: String, description: String = "", imageURLs: [String]) {
         self.id = id
         self.fabricType = fabricType
         self.description = description

@@ -1,40 +1,50 @@
 import SwiftUI
 
+
 struct FabricThumbnailView: View {
     let fabric: Fabric
     @ObservedObject var fabricViewModel: FabricViewModel
-    @State private var image: UIImage?
+    @State private var imageURL: URL?
     
     var body: some View {
         VStack {
-            Group {
-                if let image = image {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                } else {
-                    Image(systemName: "questionmark.app.fill")
-                        .resizable()
-                        .scaledToFit()
+            if fabricViewModel.isLoading {
+                ProgressView()
+            } else if let errorMessage = fabricViewModel.errorMessage {
+                Text(errorMessage)
+                    .foregroundStyle(Color(.red))
+            } else {
+                Group {
+                    if let imageURL = imageURL {
+                        AsyncImage(url: imageURL) { phase in
+                            switch phase {
+                            case .empty:
+                                ProgressView()
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            case .failure:
+                                Image(systemName: "photo")
+                                    .foregroundStyle(Color(.gray))
+                            @unknown default:
+                                EmptyView()
+                            }
+                        }
+                    } else {
+                        ProgressView() }
                 }
+                .frame(width: 80, height: 80)
+                .clipped()
+                .cornerRadius(10)
+                
+                Text(fabric.id)
+                    .font(.caption)
+                    .lineLimit(1)
             }
-            .frame(width: 80, height: 80)
-            .clipped()
-            .cornerRadius(10)
-            
-            Text(fabric.id)
-                .font(.caption)
-                .lineLimit(1)
         }
         .task {
-            await loadImage()
-        }
-    }
-    
-    private func loadImage() async {
-        if let firstURL = fabric.imageURLs.first,
-           let loadedImage = await fabricViewModel.loadImage(url: firstURL) {
-            self.image = loadedImage
+            self.imageURL = await fabricViewModel.loadImageURLs(for: self.fabric).first
         }
     }
 }

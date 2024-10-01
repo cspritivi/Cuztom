@@ -17,7 +17,7 @@
 		724119892CA0904D00B0EF4A /* FabricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724119882CA0904D00B0EF4A /* FabricsView.swift */; };
 		7241198B2CA0906100B0EF4A /* Fabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7241198A2CA0906100B0EF4A /* Fabric.swift */; };
 		7241198D2CA0907200B0EF4A /* FabricDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7241198C2CA0907200B0EF4A /* FabricDetailView.swift */; };
-		7241198F2CA0908F00B0EF4A /* FabricViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7241198E2CA0908F00B0EF4A /* FabricViewModal.swift */; };
+		7241198F2CA0908F00B0EF4A /* FabricViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7241198E2CA0908F00B0EF4A /* FabricViewModel.swift */; };
 		724E300B2C755AD6006EF167 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300A2C755AD6006EF167 /* AuthViewModel.swift */; };
 		724E300D2C7BB581006EF167 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300C2C7BB581006EF167 /* SettingsRowView.swift */; };
 		724E300F2C7BB839006EF167 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724E300E2C7BB839006EF167 /* User.swift */; };
@@ -30,6 +30,8 @@
 		724E30212C7C177B006EF167 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 724E30202C7C177B006EF167 /* FirebaseStorage */; };
 		7253E0AF2CAA2C5E006AA1E9 /* FabricDirectoryScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253E0AE2CAA2C5E006AA1E9 /* FabricDirectoryScanner.swift */; };
 		7253E0B12CAA37CF006AA1E9 /* FabricDirScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253E0B02CAA37CF006AA1E9 /* FabricDirScannerView.swift */; };
+		7253E0B42CAB624A006AA1E9 /* FabricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253E0B32CAB624A006AA1E9 /* FabricView.swift */; };
+		7253E0B62CAB6346006AA1E9 /* FirebaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7253E0B52CAB6346006AA1E9 /* FirebaseImageView.swift */; };
 		7256F2F62C374C4900D982F0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7256F2F52C374C4900D982F0 /* README.md */; };
 		7256F2FA2C3756FD00D982F0 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7256F2F92C3756FD00D982F0 /* Customer.swift */; };
 		7256F2FC2C375A2200D982F0 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7256F2FB2C375A2200D982F0 /* Order.swift */; };
@@ -89,13 +91,15 @@
 		724119882CA0904D00B0EF4A /* FabricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricsView.swift; sourceTree = "<group>"; };
 		7241198A2CA0906100B0EF4A /* Fabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fabric.swift; sourceTree = "<group>"; };
 		7241198C2CA0907200B0EF4A /* FabricDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricDetailView.swift; sourceTree = "<group>"; };
-		7241198E2CA0908F00B0EF4A /* FabricViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricViewModal.swift; sourceTree = "<group>"; };
+		7241198E2CA0908F00B0EF4A /* FabricViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricViewModel.swift; sourceTree = "<group>"; };
 		724E300A2C755AD6006EF167 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		724E300C2C7BB581006EF167 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		724E300E2C7BB839006EF167 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		724E30192C7C085B006EF167 /* LoginWorkflowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorkflowTests.swift; sourceTree = "<group>"; };
 		7253E0AE2CAA2C5E006AA1E9 /* FabricDirectoryScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricDirectoryScanner.swift; sourceTree = "<group>"; };
 		7253E0B02CAA37CF006AA1E9 /* FabricDirScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricDirScannerView.swift; sourceTree = "<group>"; };
+		7253E0B32CAB624A006AA1E9 /* FabricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricView.swift; sourceTree = "<group>"; };
+		7253E0B52CAB6346006AA1E9 /* FirebaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImageView.swift; sourceTree = "<group>"; };
 		7256F2F52C374C4900D982F0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7256F2F92C3756FD00D982F0 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		7256F2FB2C375A2200D982F0 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -170,8 +174,10 @@
 				724119882CA0904D00B0EF4A /* FabricsView.swift */,
 				7241198A2CA0906100B0EF4A /* Fabric.swift */,
 				7241198C2CA0907200B0EF4A /* FabricDetailView.swift */,
-				7241198E2CA0908F00B0EF4A /* FabricViewModal.swift */,
+				7241198E2CA0908F00B0EF4A /* FabricViewModel.swift */,
 				72FA540B2CA0A5E0005F922E /* FabricThumbnailView.swift */,
+				7253E0B32CAB624A006AA1E9 /* FabricView.swift */,
+				7253E0B52CAB6346006AA1E9 /* FirebaseImageView.swift */,
 			);
 			path = Fabric;
 			sourceTree = "<group>";
@@ -475,18 +481,20 @@
 				723C1AD12C8D0FE700693766 /* MeasurementFormView.swift in Sources */,
 				724E300F2C7BB839006EF167 /* User.swift in Sources */,
 				7256F3352C3B5A1200D982F0 /* SignInView.swift in Sources */,
-				7241198F2CA0908F00B0EF4A /* FabricViewModal.swift in Sources */,
+				7241198F2CA0908F00B0EF4A /* FabricViewModel.swift in Sources */,
 				7284B8F12C802311008A4ADD /* CMeasurement.swift in Sources */,
 				7256F2FA2C3756FD00D982F0 /* Customer.swift in Sources */,
 				7256F30B2C37813900D982F0 /* LoginView1.swift in Sources */,
 				72FA540C2CA0A5E1005F922E /* FabricThumbnailView.swift in Sources */,
 				72B672532CA4DE4800F73632 /* FabricUploadScript.swift in Sources */,
 				7241198B2CA0906100B0EF4A /* Fabric.swift in Sources */,
+				7253E0B42CAB624A006AA1E9 /* FabricView.swift in Sources */,
 				7256F3372C3B5A2D00D982F0 /* CreateAccountView.swift in Sources */,
 				724119892CA0904D00B0EF4A /* FabricsView.swift in Sources */,
 				723C1ACB2C8AA7F400693766 /* HelperCode.swift in Sources */,
 				7284B8EF2C801DB5008A4ADD /* MeasurementView.swift in Sources */,
 				7257335F2C27855600FAD9BC /* ContentView.swift in Sources */,
+				7253E0B62CAB6346006AA1E9 /* FirebaseImageView.swift in Sources */,
 				72E459C82C97BCEA001DAABF /* MeasurementViewModel.swift in Sources */,
 				724119822C9FA84900B0EF4A /* OrderView.swift in Sources */,
 				7256F2FC2C375A2200D982F0 /* Order.swift in Sources */,
