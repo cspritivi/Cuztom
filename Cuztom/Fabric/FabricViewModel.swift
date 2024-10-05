@@ -17,6 +17,7 @@ class FabricViewModel: ObservableObject {
     @Published var fabrics: [Fabric] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
+    private var images: [String: [UIImage]] = [:]
     
     @MainActor
         func fetchFabrics() async throws -> [Fabric] {
@@ -44,33 +45,12 @@ class FabricViewModel: ObservableObject {
                 throw error
             }
         }
-        
-        
-//        do {
-//            let snapshot = try await db.collection("fabrics").getDocuments()
-//            self.fabrics = snapshot.documents.compactMap({ document -> Fabric? in
-//                let data = document.data()
-//                print(data)
-//                guard let fabricType: String = data["type"] as? String,
-//                      let imageURLs: [String] = data["imageURLs"] as? [String] else {
-//                    print("Error getting fabrics")
-//                    return nil
-//                }
-//                return Fabric(id: document.documentID, fabricType: fabricType, imageURLs: imageURLs)
-//            })
-//        } catch {
-//            print("Faield to fetch fabrics: \(error.localizedDescription)")
-//        }
-        
-//        isLoading = false
     
     func loadImageURLs(for fabric: Fabric) async -> [URL] {
-        print("Entering loadImageURLs")
         var imageURLs: [URL] = []
         let storage = Storage.storage()
         
         for imageURL in fabric.imageURLs {
-            print(imageURL)
             let reference = storage.reference().child(imageURL)
             do {
                 let url = try await reference.downloadURL()
@@ -79,8 +59,28 @@ class FabricViewModel: ObservableObject {
                 print("Error getting download URL: \(error.localizedDescription)")
             }
         }
-        
-        print(imageURLs)
         return imageURLs
+    }
+    
+    func loadImages(for fabric: Fabric) async -> [UIImage] {
+        if let cachedImages = self.images[fabric.id] {
+            return cachedImages
+        }
+        
+        let imageURLs = await loadImageURLs(for: fabric)
+        for imageURL in imageURLs {
+            
+            if let (data, _) = try? await URLSession.shared.data(from: imageURL), let uiImage = UIImage(data: data) {
+                await MainActor.run {
+                    if let images = self.images[fabric.id] {
+                        self.images[fabric.id]!.append(uiImage)
+                    } else {
+                        self.images[fabric.id] = [uiImage]
+                    }
+                }
+            }
+        }
+        
+        return self.images[fabric.id] ?? []
     }
 }

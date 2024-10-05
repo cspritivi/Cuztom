@@ -4,7 +4,7 @@ import SwiftUI
 struct FabricThumbnailView: View {
     let fabric: Fabric
     @ObservedObject var fabricViewModel: FabricViewModel
-    @State private var imageURL: URL?
+    @State private var image: UIImage?
     
     var body: some View {
         VStack {
@@ -15,24 +15,11 @@ struct FabricThumbnailView: View {
                     .foregroundStyle(Color(.red))
             } else {
                 Group {
-                    if let imageURL = imageURL {
-                        AsyncImage(url: imageURL) { phase in
-                            switch phase {
-                            case .empty:
-                                ProgressView()
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            case .failure:
-                                Image(systemName: "photo")
-                                    .foregroundStyle(Color(.gray))
-                            @unknown default:
-                                EmptyView()
-                            }
-                        }
-                    } else {
-                        ProgressView() }
+                    if let image = image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } else { ProgressView() }
                 }
                 .frame(width: 80, height: 80)
                 .clipped()
@@ -44,7 +31,7 @@ struct FabricThumbnailView: View {
             }
         }
         .task {
-            self.imageURL = await fabricViewModel.loadImageURLs(for: self.fabric).first
+            self.image = await fabricViewModel.loadImages(for: self.fabric).randomElement()
         }
     }
 }

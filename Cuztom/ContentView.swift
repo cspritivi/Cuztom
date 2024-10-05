@@ -41,33 +41,6 @@ struct ContentView: View {
             }
         }
     }
-    
-//    var body: some View {
-//        
-//        NavigationView {
-//            
-//            if authViewModel.isAuthenticated {
-//                NavigationStack {
-//                    TabView {
-//                        HomeView()
-//                            .tabItem {
-//                                Label("Home", systemImage: "house.fill")
-//                            }
-//                        
-//                        ProfileView()
-//                            .tabItem {
-//                                Label("Profile", systemImage: "person.crop.circle.fill")
-//                            }
-//                        
-//                        
-//                    }
-//                }
-//                
-//            } else {
-//                LoginView1()
-//            }
-//        }
-//    }
 }
 
 #Preview {

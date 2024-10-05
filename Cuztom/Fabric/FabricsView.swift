@@ -38,11 +38,6 @@ struct FabricsView: View {
                 }
             }
         }
-        .onAppear() {
-//            fabricViewModel.fetchFabrics()
-//            self.fabrics = fabricViewModel.fabrics
-//            isLoading = false
-        }
         .task {
             do {
                 try await fetchFabrics(filter: self.filter)
@@ -57,7 +52,6 @@ struct FabricsView: View {
     
     private func fetchFabrics(filter: String) async throws {
         self.fabrics = try await fabricViewModel.fetchFabrics()
-//        self.fabrics = fabricViewModel.fabrics
     }
 }
 

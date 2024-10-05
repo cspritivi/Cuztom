@@ -85,23 +85,25 @@ import SwiftUI
 struct FabricDetailView: View {
     let fabric: Fabric
     @ObservedObject var fabricViewModel: FabricViewModel
-    @State var imageURLs: [URL]?
+    @State var images: [UIImage]?
 
     var body: some View {
         Group {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .center, spacing: 20) {
                 imageSection
+                
                 
                 infoSection
                 
                 Spacer()
             }
             .padding()
+            .frame(width: UIScreen.main.bounds.width)
         }
         .navigationTitle(fabric.id)
         .navigationBarTitleDisplayMode(.inline)
         .task {
-            self.imageURLs = await fabricViewModel.loadImageURLs(for: self.fabric)
+            self.images = await fabricViewModel.loadImages(for: self.fabric)
         }
     }
     
@@ -110,44 +112,29 @@ struct FabricDetailView: View {
             if fabricViewModel.isLoading {
                 ProgressView()
             } else {
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(self.imageURLs ?? [], id: \.self) { url in
-                            AsyncImage(url: url) { phase in
-                                switch phase {
-                                case .empty:
-                                    ProgressView()
-                                        .frame(width: 300, height: 300)
-                                case .success(let image):
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 300, height: 300)
-                                        .clipped()
-                                        .cornerRadius(10)
-                                case .failure:
-                                    Image(systemName: "photo")
-                                        .foregroundColor(.gray)
-                                        .frame(width: 300, height: 300)
-                                @unknown default:
-                                    EmptyView()
-                                }
-                            }
-                        }
-                    }
+                if let images = images {
+                    ImageCarousel(images: images)
+                        .frame(width: UIScreen.main.bounds.size.width, height: 300)
+                        .clipped()
+                        .cornerRadius(10)
+                } else {
+                    ProgressView()
+                        .frame(width: 300, height: 300)
                 }
             }
         }
     }
     
     private var infoSection: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .center, spacing: 10) {
             Text("Fabric Type: \(fabric.fabricType)")
                 .font(.headline)
             
             Text(fabric.description.isEmpty ? "Fabric has no description right now" : fabric.description)
                 .font(.body)
         }
+        .padding()
+        
     }
 }
 
