@@ -55,6 +55,13 @@
 		7284B8EF2C801DB5008A4ADD /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7284B8EE2C801DB5008A4ADD /* MeasurementView.swift */; };
 		7284B8F12C802311008A4ADD /* CMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7284B8F02C802311008A4ADD /* CMeasurement.swift */; };
 		72ABEA3A2C7D586D00FECEA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72ABEA392C7D586D00FECEA1 /* GoogleService-Info.plist */; };
+		72B060F32CB1E5A60006189C /* StartOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B060F22CB1E5A60006189C /* StartOrderView.swift */; };
+		72B060F72CB1EA520006189C /* OrderTypeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B060F62CB1EA520006189C /* OrderTypeRowView.swift */; };
+		72B060FD2CB1F87B0006189C /* Shirt.png in Resources */ = {isa = PBXBuildFile; fileRef = 72B060FA2CB1F87B0006189C /* Shirt.png */; };
+		72B060FE2CB1F87B0006189C /* Suit.png in Resources */ = {isa = PBXBuildFile; fileRef = 72B060F92CB1F87B0006189C /* Suit.png */; };
+		72B060FF2CB1F87B0006189C /* Indian.png in Resources */ = {isa = PBXBuildFile; fileRef = 72B060FB2CB1F87B0006189C /* Indian.png */; };
+		72B061002CB1F87B0006189C /* Pant.png in Resources */ = {isa = PBXBuildFile; fileRef = 72B060FC2CB1F87B0006189C /* Pant.png */; };
+		72B061022CB30B330006189C /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B061012CB30B330006189C /* OrderViewModel.swift */; };
 		72B1CD0E2CAF8F15000A98F5 /* ImageCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B1CD0D2CAF8F14000A98F5 /* ImageCarousel.swift */; };
 		72B672532CA4DE4800F73632 /* FabricUploadScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B672522CA4DE3A00F73632 /* FabricUploadScript.swift */; };
 		72B672562CA4E86900F73632 /* FabricUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B672552CA4E86900F73632 /* FabricUploadViewController.swift */; };
@@ -128,6 +135,13 @@
 		7284B8EE2C801DB5008A4ADD /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
 		7284B8F02C802311008A4ADD /* CMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMeasurement.swift; sourceTree = "<group>"; };
 		72ABEA392C7D586D00FECEA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		72B060F22CB1E5A60006189C /* StartOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOrderView.swift; sourceTree = "<group>"; };
+		72B060F62CB1EA520006189C /* OrderTypeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTypeRowView.swift; sourceTree = "<group>"; };
+		72B060F92CB1F87B0006189C /* Suit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Suit.png; sourceTree = "<group>"; };
+		72B060FA2CB1F87B0006189C /* Shirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shirt.png; sourceTree = "<group>"; };
+		72B060FB2CB1F87B0006189C /* Indian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Indian.png; sourceTree = "<group>"; };
+		72B060FC2CB1F87B0006189C /* Pant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pant.png; sourceTree = "<group>"; };
+		72B061012CB30B330006189C /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		72B1CD0D2CAF8F14000A98F5 /* ImageCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarousel.swift; sourceTree = "<group>"; };
 		72B672522CA4DE3A00F73632 /* FabricUploadScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricUploadScript.swift; sourceTree = "<group>"; };
 		72B672552CA4E86900F73632 /* FabricUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricUploadViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +208,7 @@
 		7256F3062C37796500D982F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				72B060F12CB1E5520006189C /* Order */,
 				724119852CA0902500B0EF4A /* Fabric */,
 				7284B8ED2C800E32008A4ADD /* Measurement */,
 				72648F112C4B3412000A301A /* Components */,
@@ -243,6 +258,7 @@
 		7257335B2C27855600FAD9BC /* Cuztom */ = {
 			isa = PBXGroup;
 			children = (
+				72B060F82CB1F5A20006189C /* Order_Type_Images */,
 				72B672542CA4E83800F73632 /* FabricUpload */,
 				72ABEA392C7D586D00FECEA1 /* GoogleService-Info.plist */,
 				72648F0B2C474C19000A301A /* Info.plist */,
@@ -304,6 +320,7 @@
 				724E300C2C7BB581006EF167 /* SettingsRowView.swift */,
 				723C1AD42C8D3FD600693766 /* ValuePickerField.swift */,
 				72E459C92C98B6B1001DAABF /* InfoRowView.swift */,
+				72B060F62CB1EA520006189C /* OrderTypeRowView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -319,6 +336,26 @@
 				72E459C72C97BCEA001DAABF /* MeasurementViewModel.swift */,
 			);
 			name = Measurement;
+			sourceTree = "<group>";
+		};
+		72B060F12CB1E5520006189C /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				72B060F22CB1E5A60006189C /* StartOrderView.swift */,
+				72B061012CB30B330006189C /* OrderViewModel.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		72B060F82CB1F5A20006189C /* Order_Type_Images */ = {
+			isa = PBXGroup;
+			children = (
+				72B060F92CB1F87B0006189C /* Suit.png */,
+				72B060FA2CB1F87B0006189C /* Shirt.png */,
+				72B060FB2CB1F87B0006189C /* Indian.png */,
+				72B060FC2CB1F87B0006189C /* Pant.png */,
+			);
+			path = Order_Type_Images;
 			sourceTree = "<group>";
 		};
 		72B672542CA4E83800F73632 /* FabricUpload */ = {
@@ -453,6 +490,10 @@
 				72648F172C4B3E8F000A301A /* Voga-Medium.otf in Resources */,
 				72648F102C4AD7C4000A301A /* Aileron-Regular.otf in Resources */,
 				725733642C27855800FAD9BC /* Preview Assets.xcassets in Resources */,
+				72B060FD2CB1F87B0006189C /* Shirt.png in Resources */,
+				72B060FE2CB1F87B0006189C /* Suit.png in Resources */,
+				72B060FF2CB1F87B0006189C /* Indian.png in Resources */,
+				72B061002CB1F87B0006189C /* Pant.png in Resources */,
 				72648F0E2C474D8C000A301A /* Aileron-Thin.otf in Resources */,
 				7256F3082C377DDC00D982F0 /* Launch Screen.storyboard in Resources */,
 				725733612C27855800FAD9BC /* Assets.xcassets in Resources */,
@@ -486,6 +527,8 @@
 				7256F3352C3B5A1200D982F0 /* SignInView.swift in Sources */,
 				7241198F2CA0908F00B0EF4A /* FabricViewModel.swift in Sources */,
 				7284B8F12C802311008A4ADD /* CMeasurement.swift in Sources */,
+				72B060F32CB1E5A60006189C /* StartOrderView.swift in Sources */,
+				72B061022CB30B330006189C /* OrderViewModel.swift in Sources */,
 				7256F2FA2C3756FD00D982F0 /* Customer.swift in Sources */,
 				7256F30B2C37813900D982F0 /* LoginView1.swift in Sources */,
 				72B1CD0E2CAF8F15000A98F5 /* ImageCarousel.swift in Sources */,
@@ -497,6 +540,7 @@
 				724119892CA0904D00B0EF4A /* FabricsView.swift in Sources */,
 				723C1ACB2C8AA7F400693766 /* HelperCode.swift in Sources */,
 				7284B8EF2C801DB5008A4ADD /* MeasurementView.swift in Sources */,
+				72B060F72CB1EA520006189C /* OrderTypeRowView.swift in Sources */,
 				7257335F2C27855600FAD9BC /* ContentView.swift in Sources */,
 				7253E0B62CAB6346006AA1E9 /* FirebaseImageView.swift in Sources */,
 				72E459C82C97BCEA001DAABF /* MeasurementViewModel.swift in Sources */,

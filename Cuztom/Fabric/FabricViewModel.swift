@@ -48,7 +48,6 @@ class FabricViewModel: ObservableObject {
     
     func loadImageURLs(for fabric: Fabric) async -> [URL] {
         var imageURLs: [URL] = []
-        let storage = Storage.storage()
         
         for imageURL in fabric.imageURLs {
             let reference = storage.reference().child(imageURL)
@@ -72,7 +71,7 @@ class FabricViewModel: ObservableObject {
             
             if let (data, _) = try? await URLSession.shared.data(from: imageURL), let uiImage = UIImage(data: data) {
                 await MainActor.run {
-                    if let images = self.images[fabric.id] {
+                    if self.images[fabric.id] != nil {
                         self.images[fabric.id]!.append(uiImage)
                     } else {
                         self.images[fabric.id] = [uiImage]
